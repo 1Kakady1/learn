@@ -1,0 +1,33 @@
+=font_my($name,$folder,$name_url)
+	@font-face
+		font-family: quote($name)
+		src: url(../fonts/#{$folder}/#{$name_url}.ttf ) format('truetype')
+		src: url(../fonts/#{$folder}/#{$name_url}.woff) format('woff1')
+		src: url(../fonts/#{$folder}/#{$name_url}.woff2) format('woff2')
+		src: url(../fonts/#{$folder}/#{$name_url}.otf) format("opentype")
+		src: url(../fonts/#{$folder}/#{$name_url}.eot)
+		src: url(../fonts/#{$folder}/#{$name_url}.eot?#iefix) format('embedded-opentype')
++font_my(RobotoRegular,roboto,RobotoRegular);
+*
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	-ms-box-sizing: border-box;
+	box-sizing: border-box; 
+
+a, a,.button-social__btn,.button-social__btn:hover
+	-moz-transition: all 200ms linear;
+	-ms-transition: all 200ms linear;
+	-o-transition: all 200ms linear;
+	-webkit-transition: all 200ms linear;
+	transition: all 200ms linear;
+	cursor: pointer;
+
+body
+	margin: 0
+	padding-left: 322px
+	padding-right: 322px
+	background: url(../img/1.png)
+	background-repeat: no-repeat;
+	background-size: 100%;
+@import ../blocks/header/_header
+
