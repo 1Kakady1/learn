@@ -1,83 +1,84 @@
 include ./post/post-mixin
-.post-slider
-	-
-		var product = [[
-			{
-			  url: '#',
-			  img: '1.png',
-			  title: 'At vero eos et accusamus et iusto odio',
-			  cat: 'Photography',
-			  faIcon: ['far fa-user','far fa-calendar', 'far fa-comment-dots']
-			},
-			{
-			  url: '#',
-			  img: '1.png',
-			  title: 'At vero eos et accusamus et iusto odio',
-			  cat: 'Photography',
-			  faIcon: ['far fa-user','far fa-calendar', 'far fa-comment-dots']
-			},
-			{
-			  url: '#',
-			  img: '1.png',
-			  title: 'At vero eos et accusamus et iusto odio',
-			  cat: 'Photography',
-			  faIcon: ['far fa-user','far fa-calendar', 'far fa-comment-dots']
-			},
-			{
-			  url: '#',
-			  img: '1.png',
-			  title: 'At vero eos et accusamus et iusto odio',
-			  cat: 'Photography',
-			  faIcon: ['far fa-user','far fa-calendar', 'far fa-comment-dots']
-			},
-			{
-			  url: '#',
-			  img: '1.png',
-			  title: 'At vero eos et accusamus et iusto odio',
-			  cat: 'Photography',
-			  faIcon: ['far fa-user','far fa-calendar', 'far fa-comment-dots']
-			},									                
-		],
-		[
-			{
-			  url: '#',
-			  img: '1.png',
-			  title: 'At vero eos et accusamus et iusto odio',
-			  cat: 'Photography',
-			  faIcon: ['far fa-user','far fa-calendar', 'far fa-comment-dots']
-			},
-			{
-			  url: '#',
-			  img: '1.png',
-			  title: 'At vero eos et accusamus et iusto odio',
-			  cat: 'Photography',
-			  faIcon: ['far fa-user','far fa-calendar', 'far fa-comment-dots']
-			},
-			{
-			  url: '#',
-			  img: '1.png',
-			  title: 'At vero eos et accusamus et iusto odio',
-			  cat: 'Photography',
-			  faIcon: ['far fa-user','far fa-calendar', 'far fa-comment-dots']
-			},
-			{
-			  url: '#',
-			  img: '1.png',
-			  title: 'At vero eos et accusamus et iusto odio',
-			  cat: 'Photography',
-			  faIcon: ['far fa-user','far fa-calendar', 'far fa-comment-dots']
-			},
-			{
-			  url: '#',
-			  img: '1.png',
-			  title: 'At vero eos et accusamus et iusto odio',
-			  cat: 'Photography',
-			  faIcon: ['far fa-user','far fa-calendar', 'far fa-comment-dots']
-			},									                
-		]]
-	
-	-for(var i=0;i<product.length;i++){
-		.slider-item
-			each prod in product[i]
-				+printPostBlock(prod)
-	-}
+.slider
+	.slider-items
+		-
+			var product = [[
+				{
+				  url: '#',
+				  img: '1.png',
+				  title: 'At vero eos et accusamus et iusto odio',
+				  cat: 'Photography',
+				  faIcon: ['far fa-user','far fa-calendar', 'far fa-comment-dots']
+				},
+				{
+				  url: '#',
+				  img: '1.png',
+				  title: 'At vero eos et accusamus et iusto odio',
+				  cat: 'Photography',
+				  faIcon: ['far fa-user','far fa-calendar', 'far fa-comment-dots']
+				},
+				{
+				  url: '#',
+				  img: '1.png',
+				  title: 'At vero eos et accusamus et iusto odio',
+				  cat: 'Photography',
+				  faIcon: ['far fa-user','far fa-calendar', 'far fa-comment-dots']
+				},
+				{
+				  url: '#',
+				  img: '1.png',
+				  title: 'At vero eos et accusamus et iusto odio',
+				  cat: 'Photography',
+				  faIcon: ['far fa-user','far fa-calendar', 'far fa-comment-dots']
+				},
+				{
+				  url: '#',
+				  img: '1.png',
+				  title: 'At vero eos et accusamus et iusto odio',
+				  cat: 'Photography',
+				  faIcon: ['far fa-user','far fa-calendar', 'far fa-comment-dots']
+				},									                
+			],
+			[
+				{
+				  url: '#',
+				  img: '1.png',
+				  title: 'At vero eos et accusamus et iusto odio',
+				  cat: 'Photography',
+				  faIcon: ['far fa-user','far fa-calendar', 'far fa-comment-dots']
+				},
+				{
+				  url: '#',
+				  img: '1.png',
+				  title: 'At vero eos et accusamus et iusto odio',
+				  cat: 'Photography',
+				  faIcon: ['far fa-user','far fa-calendar', 'far fa-comment-dots']
+				},
+				{
+				  url: '#',
+				  img: '1.png',
+				  title: 'At vero eos et accusamus et iusto odio',
+				  cat: 'Photography',
+				  faIcon: ['far fa-user','far fa-calendar', 'far fa-comment-dots']
+				},
+				{
+				  url: '#',
+				  img: '1.png',
+				  title: 'At vero eos et accusamus et iusto odio',
+				  cat: 'Photography',
+				  faIcon: ['far fa-user','far fa-calendar', 'far fa-comment-dots']
+				},
+				{
+				  url: '#',
+				  img: '1.png',
+				  title: 'At vero eos et accusamus et iusto odio',
+				  cat: 'Photography',
+				  faIcon: ['far fa-user','far fa-calendar', 'far fa-comment-dots']
+				},									                
+			]]
+		
+		-for(var i=0;i<product.length;i++){
+				each prod in product[i]
+					+printPostBlock(prod)
+		-}
+	.slider-dot

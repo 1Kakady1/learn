@@ -3,7 +3,15 @@
 	width: 100%;
 	height: 352px;
 	position: relative
-	display: block	
+	display: block
+	&:hover
+		.post-content
+			opacity: 0.4
+			background-image:  -webkit-linear-gradient(bottom, rgb(85, 178, 243) 0%, rgba(0, 0, 0, 0) 100%)
+			background-image:  -o-linear-gradient(bottom, rgb(85, 178, 243) 0%, rgba(0, 0, 0, 0) 100%)
+			background-image:  linear-gradient(to top, rgb(85, 178, 243) 0%, rgba(0, 0, 0, 0) 100%)	
+		.icon-list__item,.icon-file__cat-item,.icon-file__cat 
+			color: #ffffff!important
 .thumbnail
 	width: 100%
 	height: 100%
@@ -11,6 +19,8 @@
 		width: 100%
 		height: 100%
 .post-content
+	transition: opacity 0.5s ease-in-out 0s;
+	opacity: 1
 	width: 100%
 	height: 151px;
 	background-image:  -webkit-linear-gradient(bottom, #000000 0%, rgba(0, 0, 0, 0) 100%)

@@ -1,7 +1,30 @@
-.post-slider
+.slider,.slider-items
 	display: -webkit-flex
 	display: -moz-flex
 	display: -ms-flex
 	display: -o-flex
 	display: flex
+.slider
+	flex-direction: column
+.slider-dot,.slick-dots
+	width: 100%
+	background: #ffffff
+	display: flex
+	flex-flow: row wrap
+	justify-content: flex-end
+	align-items: center
+	padding: 10px 40px 10px 40px
+	list-style: none;
+	margin: 0
+	.slider-dot__item_activ,.slick-active>button
+		background: #646464
+	.slider-dot__item,button
+		width: 26px
+		height: 6px
+		background: #e9e9e9
+		font-size: 0
+		margin-right: 4px
+		border: none
+		&:hover
+			background: #646464
 @import ./post/_post
