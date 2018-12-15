@@ -1,21 +1,20 @@
-.news-tab.news-tab_style
+.news-tab
 	.ribbon
-		.ribbon-title
-			h2.h2_ribbon-title Breaking News
-		.ribbon-news
+		h2.ribbon__title Breaking News
+		.news-ribbon
 			.marquee
-				p.p_ribbon-title
+				p.marquee__row
 					| Lorem Ipsum is simply dummy text of the printing and typesetting industry
-					i(class="fa-star far fas ribbon-title__icon-star")
+					i(class="far fa-star marquee__icon-star")
 					| Lorem Ipsum is simply dummy text of the printing and typesetting industry
-					i(class="fa-star far fas ribbon-title__icon-star")
+					i(class="far fa-star fas marquee__icon-star")
 					| Lorem Ipsum is simply dummy text of the printing and typesetting industry
 	.button-social
-		button( type = 'sibmit', class="button-social__btn")
-			i( class="fa-fa")
-		button( type = 'sibmit', class="button-social__btn")
-			i( class="fa-fa")
-		button( type = 'sibmit', class="button-social__btn")
-			i( class="fa-fa")
-		button( type = 'sibmit', class="button-social__btn")
-			i( class="fa-fa") 
+		button( type = 'submit', class="button-social__btn")
+			i( class="fas fa-search")
+		button( type = 'submit', class="button-social__btn")
+			i( class="fab fa-telegram-plane")
+		button( type = 'submit', class="button-social__btn button-social__active-blue")
+			i( class="fab fa-facebook-f")
+		button( type = 'submit', class="button-social__btn")
+			i( class="fab fa-twitter") 
