@@ -1,6 +1,6 @@
-mixin printPostBlock(postObj)
+mixin printPostBlock(postObj,modif_h)
 	.post
-		a(href =""+postObj.url class="post-link")
+		a(href =""+postObj.url class="post-link "+modif_h)
 			.thumbnail
 				img(src="./img/"+postObj.img alt="" class="thumbnail__size")
 			.post-content.position_abs
