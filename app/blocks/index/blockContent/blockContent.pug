@@ -1,0 +1,11 @@
+include ../../header/post-slider/post/post-mixin
+
+.box-content
+	h2.box-content__title #{titleBlock}
+	.content-wrap
+		-if(flagBlock == 1){
+		-for(var i=0;i<product.length;i++){
+			each prod in product[i]
+				+printPostBlock(prod,"post-link_h243")
+		-}
+		-}
