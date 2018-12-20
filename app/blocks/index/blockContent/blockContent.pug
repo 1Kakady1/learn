@@ -1,11 +1,18 @@
 include ../../header/post-slider/post/post-mixin
 
 .box-content
-	h2.box-content__title #{titleBlock}
-	.content-wrap
-		-if(flagBlock == 1){
-		-for(var i=0;i<product.length;i++){
-			each prod in product[i]
-				+printPostBlock(prod,"post-link_h243")
+	.title
+		h2.title__h2 #{titleBlock}
+		-if(blockOn == 3){
+		.dot-carusel
 		-}
+	.content-wrap
+		-if(blockOn == 1)
+			each prod in product
+				+printPostBlock(prod,"post-link_h243")
+		-if(blockOn == 2){
+			include ../gallary/gal
+		-}
+		-if(blockOn == 3){
+			include ../slickPost/carouselPosts
 		-}

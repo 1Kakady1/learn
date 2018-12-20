@@ -1,5 +1,5 @@
 -
-	var product = [[
+	var product = [
 		{
 		  url: '#',
 		  img: '1.png',
@@ -34,8 +34,11 @@
 		  num: "8.7",
 		  numF: "Awesome"
 		},									                
-	],];
+	];
 .column1
-	-var titleBlock = "Latest Posts", flagBlock= 1;
+	-var titleBlock = "Latest Posts", blockOn= 1;
 	include ../blockContent/blockContent
-	include ../gallary/gal
+	- titleBlock = "News in Picture"; blockOn= 2;
+	include ../blockContent/blockContent
+	- titleBlock = "Carousel Posts"; blockOn= 3;
+	include ../blockContent/blockContent
