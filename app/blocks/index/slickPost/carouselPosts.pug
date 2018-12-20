@@ -1,8 +1,77 @@
+include ./post/post-mixin
 .mini-items
-	include ./post/post
-	include ./post/post
-	include ./post/post
-	include ./post/post
-	include ./post/post
-	include ./post/post
-	include ./post/post
+	-
+		var miniPost = [[
+			{
+			  url: '#',
+			  img: '1.png',
+			  svg: 'video',
+			  title: 'Sed do eiusmod tempor incididunt ut',
+			  date: '27 March, 2014',
+			},
+			{
+			  url: '#',
+			  img: '1.png',
+			  svg: 'music',
+			  title: 'Sed do eiusmod tempor incididunt ut',
+			  date: '27 March, 2014',
+			},	
+			{
+			  url: '#',
+			  img: '1.png',
+			  svg: 'music',
+			  title: 'Sed do eiusmod tempor incididunt ut',
+			  date: '27 March, 2014',
+			},								                
+		],
+		[
+			{
+			  url: '#',
+			  img: '1.png',
+			  svg: 'music',
+			  title: 'Sed do eiusmod tempor incididunt ut',
+			  date: '27 March, 2014',
+			},
+			{
+			  url: '#',
+			  img: '1.png',
+			  svg: 'music',
+			  title: 'Sed do eiusmod tempor incididunt ut',
+			  date: '27 March, 2014',
+			},	
+			{
+			  url: '#',
+			  img: '1.png',
+			  svg: 'music',
+			  title: 'Sed do eiusmod tempor incididunt ut',
+			  date: '27 March, 2014',
+			},								                
+		],
+		[
+			{
+			  url: '#',
+			  img: '1.png',
+			  svg: 'music',
+			  title: 'Sed do eiusmod tempor incididunt ut',
+			  date: '27 March, 2014',
+			},
+			{
+			  url: '#',
+			  img: '1.png',
+			  svg: '',
+			  title: 'Sed do eiusmod tempor incididunt ut',
+			  date: '27 March, 2014',
+			},	
+			{
+			  url: '#',
+			  img: '1.png',
+			  svg: 'video',
+			  title: 'Sed do eiusmod tempor incididunt ut',
+			  date: '27 March, 2015',
+			},								                
+		]];
+	
+	-for(var m=0;m<miniPost.length;m++){
+		each postM in miniPost[m]
+			+printMiniPost(postM)
+	-}
