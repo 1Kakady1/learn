@@ -1,5 +1,4 @@
 include ../../header/post-slider/post/post-mixin
-
 .box-content
 	.title
 		h2.title__h2 #{titleBlock}
@@ -15,4 +14,7 @@ include ../../header/post-slider/post/post-mixin
 		-}
 		-if(blockOn == 3){
 			include ../slickPost/carouselPosts
+		-}
+		-if(blockOn == 4){
+			include ../entertainment/entertainment
 		-}

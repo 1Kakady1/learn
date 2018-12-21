@@ -1,5 +1,6 @@
+include ../../header/post-slider/post/post-mixin
 -
-	var product = [
+	var entertainment =[
 		{
 		  url: '#',
 		  img: '1.png',
@@ -15,14 +16,10 @@
 		  img: '1.png',
 		  title: 'At vero eos et accusamus et iusto odio',
 		  cat: 'Photography',
-		  faIcon: ['far fa-user','far fa-calendar', 'far fa-comment-dots']
-		},
-		{
-		  url: '#',
-		  img: '1.png',
-		  title: 'At vero eos et accusamus et iusto odio',
-		  cat: 'Photography',
-		  faIcon: ['far fa-user','far fa-calendar', 'far fa-comment-dots']
+		  faIcon: ['far fa-user','far fa-calendar', 'far fa-comment-dots'],
+		  raite: 1,
+		  num: "8.7",
+		  numF: "Awesome"
 		},
 		{
 		  url: '#',
@@ -33,14 +30,29 @@
 		  raite: 1,
 		  num: "8.7",
 		  numF: "Awesome"
-		},									                
+		},
+		{
+		  url: '#',
+		  img: '1.png',
+		  title: 'At vero eos et accusamus et iusto odio',
+		  cat: 'Photography',
+		  faIcon: ['far fa-user','far fa-calendar', 'far fa-comment-dots'],
+		  raite: 1,
+		  num: "8.7",
+		  numF: "Awesome"
+		},
+		{
+		  url: '#',
+		  img: '1.png',
+		  title: 'At vero eos et accusamus et iusto odio',
+		  cat: 'Photography',
+		  faIcon: ['far fa-user','far fa-calendar', 'far fa-comment-dots'],
+		  raite: 1,
+		  num: "8.7",
+		  numF: "Awesome"
+		},
 	];
-.column1
-	-var titleBlock = "Latest Posts", blockOn= 1;
-	include ../blockContent/blockContent
-	- titleBlock = "News in Picture"; blockOn= 2;
-	include ../blockContent/blockContent
-	- titleBlock = "Carousel Posts"; blockOn= 3;
-	include ../blockContent/blockContent
-	- titleBlock = "Entertainment"; blockOn= 4;
-	include ../blockContent/blockContent
+.entertainment
+	.post-full
+		+printPostBlock(entertainment[0],"post-link_h323")
+	include ./post-items/post-items
