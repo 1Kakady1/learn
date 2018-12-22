@@ -1,21 +1,31 @@
+include ./post/post-mixin
+-
+	var postItems = [
+				{
+				  url: '#',
+				  img: '1.png',
+				  title: 'At vero eos et accusamus et iusto odio',
+				  faIcon: ['far fa-user','far fa-calendar', 'far fa-comment-dots']
+				},
+				{
+				  url: '#',
+				  img: '1.png',
+				  title: 'At vero eos et accusamus et iusto odio',
+				  faIcon: ['far fa-user','far fa-calendar', 'far fa-comment-dots']
+				},
+				{
+				  url: '#',
+				  img: '1.png',
+				  title: 'At vero eos et accusamus et iusto odio',
+				  faIcon: ['far fa-user','far fa-calendar', 'far fa-comment-dots']
+				},
+				{
+				  url: '#',
+				  img: '1.png',
+				  title: 'At vero eos et accusamus et iusto odio',
+				  faIcon: ['far fa-user','far fa-calendar', 'far fa-comment-dots']
+				},								                
+			];
 .post-items
-	a(href='#' class="box-item post-items__border")
-		.thumbnail
-			img(src="./img/1.png" alt="" class="thumbnail__size")
-		.content
-			h2.content__title A New Yorker doesn't necessarily come
-			.icon-wrap
-				.icon-list
-					i(class="far fa-user  icon-list__item")
-					i(class="far fa-calendar  icon-list__item")
-					i(class="far fa-comment-dots icon-list__item")
-	a(href='#' class="box-item post-items__border")
-		.thumbnail
-			img(src="./img/1.png" alt="" class="thumbnail__size")
-		.content
-			h2.content__title A New Yorker doesn't necessarily come
-			.icon-wrap
-				.icon-list
-					i(class="far fa-user  icon-list__item")
-					i(class="far fa-calendar  icon-list__item")
-					i(class="far fa-comment-dots icon-list__item")
+	each item in postItems
+		+printPostItems(item)
