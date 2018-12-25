@@ -1,0 +1,40 @@
+.poll
+	h2.poll__question What do you think about site?
+	.question-wrap
+		.question-radio
+			input(type="radio" id="q1" calss="question-radio__checkbox" name="q1" value="email")
+			label(for="q1" class="question-radio__lable") 
+				span.question-radio__custom
+				| Amazing
+			.progress-bar(data-vote="12") 
+				.progress-bar__count 3600
+				span.progress-bar__proc.position_abs 
+		.question-radio
+			input(type="radio" id="q2" calss="question-radio__checkbox" name="q2" value="email")
+			label(for="q2" class="question-radio__lable") 
+				span.question-radio__custom
+				| Good
+			.progress-bar(data-vote="12") 
+				.progress-bar__count 3600
+				span.progress-bar__proc.position_abs 
+		.question-radio
+			input(type="radio" id="q3" calss="question-radio__checkbox" name="q3" value="email")
+			label(for="q3" class="question-radio__lable") 
+				span.question-radio__custom
+				| Can Be Improved
+			.progress-bar(data-vote="12")
+				.progress-bar__count 3600
+				span.progress-bar__proc.position_abs 
+		.question-radio
+			input(type="radio" id="q4" calss="question-radio__checkbox" name="q4" value="email")
+			label(for="q4" class="question-radio__lable") 
+				span.question-radio__custom
+				| Not Comments
+			.progress-bar(data-vote="12")
+				.progress-bar__count 3600
+				span.progress-bar__proc.position_abs 
+	.poll-btn
+		-var btnText ="Vote";
+		include ../../gen_button/gen_button
+		-btnText ="View Results";
+		include ../../gen_button/gen_button
