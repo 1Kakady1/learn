@@ -3,13 +3,20 @@
 		a(href="/", class="logo__link-home")
 			img(src="./img/SeVen.png", alt="logo", class="logo__img")
 	.menu-toggle
-		button(class="menu-toggle__btn menu-toggle__active")
+		button(class="menu-toggle__btn menu-toggle__htx")
 			span menu
 	.toggle-menu
 		nav.menu
 			ul.menu__list
 				li.menu__item.menu__item_active 
-					a(href="#" class="menu__item-link") Categories
+					| Categories
+					ul.submenu
+						li.submenu-items
+							a(href="#" class="submenu-items__link") Новые
+						li.submenu-items
+							a(href="#" class="submenu-items__link") Новые
+						li.submenu-items
+							a(href="#" class="submenu-items__link") Новые
 				li.menu__item 
 					a(href="#" class="menu__item-link") Forums
 				li.menu__item 
