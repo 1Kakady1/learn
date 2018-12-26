@@ -56,6 +56,9 @@ input[type="radio"]:checked + .question-radio__lable
 	&-btn
 		padding-top: 24px
 
+	&__send
+		display: none
+
 .progress-bar
 	width: 100%
 	display: none
@@ -73,7 +76,11 @@ input[type="radio"]:checked + .question-radio__lable
 		z-index: 2
 
 	&__proc
-		width: 63%
+		width: 0%
+		transition: width 2s
 		background: #55B2F3
 		height: 18px
 		z-index: 1
+
+.radio_disabled
+	color: #aaa
