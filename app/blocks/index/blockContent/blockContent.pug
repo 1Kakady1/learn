@@ -5,6 +5,11 @@ include ../../header/post-slider/post/post-mixin
 		-if(blockOn == 3){
 		.dot-carusel
 		-}
+		-if(blockOn == 7){
+		.arrow-slider
+			button( type="submit", class='arrow-slider__prev') <
+			button( type="submit", class='arrow-slider__next') >
+		-}
 	.content-wrap
 		-if(blockOn == 1)
 			each prod in product
@@ -23,5 +28,8 @@ include ../../header/post-slider/post/post-mixin
 		-}
 		-if(blockOn == 6){
 			include ../poll/poll
+		-}
+		-if(blockOn == 7){
+			include ../sliderPost/sliderPost
 		-}
 

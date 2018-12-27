@@ -1,0 +1,43 @@
+include ../../header/post-slider/post/post-mixin
+.slider-post
+	-
+		var sliderPosts= [
+			{
+			  url: '#',
+			  img: '1.png',
+			  title: 'At vero eos et accusamus et iusto odio',
+			  cat: 'Photography',
+			  faIcon: ['far fa-user','far fa-calendar', 'far fa-comment-dots'],
+			},
+			{
+			  url: '#',
+			  img: '1.png',
+			  title: 'At vero eos et accusamus et iusto odio',
+			  cat: 'Photography',
+			  faIcon: ['far fa-user','far fa-calendar', 'far fa-comment-dots']
+			},
+			{
+			  url: '#',
+			  img: '1.png',
+			  title: 'At vero eos et accusamus et iusto odio',
+			  cat: 'Photography',
+			  faIcon: ['far fa-user','far fa-calendar', 'far fa-comment-dots']
+			},
+			{
+			  url: '#',
+			  img: '1.png',
+			  title: 'At vero eos et accusamus et iusto odio',
+			  cat: 'Photography',
+			  faIcon: ['far fa-user','far fa-calendar', 'far fa-comment-dots']
+			},
+			{
+			  url: '#',
+			  img: '1.png',
+			  title: 'At vero eos et accusamus et iusto odio',
+			  cat: 'Photography',
+			  faIcon: ['far fa-user','far fa-calendar', 'far fa-comment-dots']
+			},									                
+		];
+	
+	each post in sliderPosts
+		+printPostBlock(post,"post-link_h243")
