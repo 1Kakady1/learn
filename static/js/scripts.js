@@ -204,6 +204,7 @@ var initPhotoSwipeFromDOM = function(gallerySelector) {
 
 // execute above function
 initPhotoSwipeFromDOM('.my-gallery');
+
 let $arrRadio = $('.question-radio > .question-radio__checkbox'),
 	$questionRadio = $('.question-radio'),
 	$questionRadioLable = $('.question-radio > .question-radio__lable'),
