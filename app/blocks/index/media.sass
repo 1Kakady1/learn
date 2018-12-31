@@ -1,1 +1,21 @@
 @import ../header/menu/media/media
+@import ../header/news-tab/media/media
+@import ./poll/media/media
+@import ./gallary/media/media
+@import ./newsletters/media/media
+
+@media screen and (max-width: 1024px)
+    .content-wrap
+        justify-content: center;
+
+        .post 
+            width: 42%;
+            margin-right: 6px;
+            margin-left: 11px;
+            margin-top: 14px;
+        .icon-file, .icon-wrap
+            flex-direction: column;
+        .post-content__title
+            font-size: 12px;
+        .post-link_h323
+            height: 384px;

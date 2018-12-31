@@ -41,3 +41,5 @@ $('.slider-items').slick({
     }
   ]
 });
+
+$('slick-dots').eq(1).remove();
