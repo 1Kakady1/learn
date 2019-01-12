@@ -1,0 +1,13 @@
+form( class="login", metod="POST")
+    .login-input
+        input(type="text" class="login-input__usname" placeholder ="User name" name="usname")
+        input(type="password" class="login-input__password" placeholder ="" name="password")
+    .login-btn
+        .form-btn
+            -var btnText ="Log in";
+            include ../../gen_button/gen_button
+        .form-checkbox
+            input(type="checkbox" id="remember" class="form-checkbox__remember" name="remember")
+            label(for="remember" class="form-checkbox__label") Remember Me
+    a(href="#" class="login__recover") Lost your password?
+    
