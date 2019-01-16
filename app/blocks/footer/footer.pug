@@ -1,0 +1,108 @@
+.container-footer
+        .column-left
+            .logo
+                a(href="/", class="logo__link-home")
+                    img(src="./img/SeVen.png", alt="logo", class="logo__img")
+            .site-info
+                p.site-info__text eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint.
+                p.site-info__email Email:   Support@mysite.com
+            .footer-social
+                -
+                    var linkSocial = [
+                        {
+                            class: "link-social__facebook",
+                            classIcon: "fab fa-facebook-f",
+                            url: "#"
+                        },
+                        {
+                            class: "link-social__google",
+                            classIcon: "fab fa-google-plus-g",
+                            url: "#"
+                        },
+                        {
+                            class: "link-social__vk",
+                            classIcon: "fab fa-vk",
+                            url: "#"
+                        },
+                        {
+                            class: "link-social__telegram",
+                            classIcon: "fab fa-telegram-plane",
+                            url: "#"
+                        },
+                        {
+                            class: "link-social__pinterest",
+                            classIcon: "fab fa-pinterest-p",
+                            url: "#"
+                        },
+                        {
+                            class: "link-social__youtybe",
+                            classIcon: "fab fa-youtube",
+                            url: "#"
+                        },
+                        {
+                            class: "link-social__mail",
+                            classIcon: "fas fa-at",
+                            url: "#"
+                        },
+                        {
+                            class: "link-social__twitter",
+                            classIcon: "fab fa-twitter",
+                            url: "#"
+                        },
+                        {
+                            class: "link-social__reddit",
+                            classIcon: "fab fa-reddit-alien",
+                            url: "#"
+                        },
+                    ];
+            .footer-social
+                each link in linkSocial
+                    include ../link-social/link-social
+        .column-right
+            h2.column-right__rdpost Random Posts
+            .random-post
+                a(href='#' class="box-item")
+                    .thumbnail
+                        img(src="./img/1.png" alt="" class="thumbnail__size")
+                    .content
+                        h2.content__title A New Yorker doesn't necessarily come
+                        .icon-wrap
+                            .icon-list
+                                i(class="far fa-user  icon-list__item")
+                                i(class="far fa-calendar  icon-list__item")
+                                i(class="far fa-comment-dots icon-list__item")
+                a(href='#' class="box-item")
+                    .thumbnail
+                        img(src="./img/1.png" alt="" class="thumbnail__size")
+                    .content
+                        h2.content__title A New Yorker doesn't necessarily come
+                        .icon-wrap
+                            .icon-list
+                                i(class="far fa-user  icon-list__item")
+                                i(class="far fa-calendar  icon-list__item")
+                                i(class="far fa-comment-dots icon-list__item")
+                a(href='#' class="box-item")
+                    .thumbnail
+                        img(src="./img/1.png" alt="" class="thumbnail__size")
+                    .content
+                        h2.content__title A New Yorker doesn't necessarily come
+                        .icon-wrap
+                            .icon-list
+                                i(class="far fa-user  icon-list__item")
+                                i(class="far fa-calendar  icon-list__item")
+                                i(class="far fa-comment-dots icon-list__item")
+        .column-bottom
+            p.copuraite © 2014 Theme20. All Rights Reserved. Powered by Themeforest.
+            .footer-nav
+                nav.menu
+                    ul.menu__list
+                        li.menu__item
+                            a(href="/" class="menu__item-link") Home
+                        li.menu__item 
+                            a(href="#" class="menu__item-link") Forums
+                        li.menu__item 
+                            a(href="#" class="menu__item-link") Shop
+                        li.menu__item 
+                            a(href="#" class="menu__item-link") Shortcodes
+                        li.menu__item 
+                            a(href="#" class="menu__item-link") Contact
