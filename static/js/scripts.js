@@ -1,4 +1,127 @@
 $(document).ready(function() {
+let $newsList = $('.marquee > .marquee__row'),
+    $newsBtn = $('.button-social__btn');
+
+newsHide(1,0);
+
+function newsHide($m,$b){
+    for (let index = 0; index <$newsList.length; index++) {
+        $newsList.eq(index).css('display','none');
+    }
+
+    for (let index = 0; index <$newsBtn.length; index++) {
+        $newsBtn.eq(index).removeClass("button-social__active-blue");
+    }
+ 
+    $newsList.eq($b).css('display','block');
+    $newsBtn.eq($m).addClass("button-social__active-blue");
+}
+
+function searchIndexBtn($class){
+    let rez = null;
+    for (let index = 0; index < $newsBtn.length; index++) {
+        if($newsBtn[index].lastElementChild == $class){
+            rez = index;
+            break;
+        }
+        
+    }
+
+    return rez;
+
+}
+
+
+
+$newsBtn.on("click", function(e) {
+    let $btnIndex = searchIndexBtn($(this)[0].lastElementChild);
+    newsHide($btnIndex, $btnIndex-1);
+  });
+// меню на 996px-360px
+  let toggle = document.querySelectorAll(".menu-toggle__btn")[0];
+
+$(window).on('load resize',windowSize);
+
+ function windowSize(){
+	if(this.innerWidth < 996){
+		$('.toggle-menu').css({display: "none"});
+	}
+
+	if(this.innerWidth >= 996){
+		$('.toggle-menu').removeAttr("style");
+	}
+}
+		$(window).on('load resize',windowSize);
+
+    toggle.addEventListener( "click", function(e) {
+      e.preventDefault();
+      if(this.classList.contains("menu-toggle_active") !== true){
+
+		    this.classList.add("menu-toggle_active");
+		  
+		    $('.toggle-menu').slideDown(500,"linear",function(){
+		    	$(this).css({
+			      display: "flex"
+			    })
+		    });
+      }else {
+      	this.classList.remove("menu-toggle_active");
+
+		$('.toggle-menu').slideUp(500,"linear",function(){
+				$(this).css({
+			      display: "none"
+			    })
+		});
+		
+      } 
+
+    });
+ 
+$('.slider-items').slick({
+  dots: true,
+  arrows: false,
+  infinite: false,
+  speed: 700,
+  appendDots: $('.slider-dot'),
+  slidesToShow: 5,
+  slidesToScroll: 5,
+  responsive: [
+    {
+      breakpoint: 1200,
+      settings: {
+        slidesToShow: 4,
+        slidesToScroll: 4,
+        infinite: true,
+        dots: true
+      }
+    },
+    {
+      breakpoint: 996,
+      settings: {
+        slidesToShow: 3,
+        slidesToScroll: 3,
+        infinite: true,
+        dots: true
+      }
+    },
+    {
+      breakpoint: 600,
+      settings: {
+        slidesToShow: 2,
+        slidesToScroll: 2
+      }
+    },
+    {
+      breakpoint: 480,
+      settings: {
+        slidesToShow: 1,
+        slidesToScroll: 1
+      }
+    }
+  ]
+});
+
+$('slick-dots').eq(1).remove();
 function Calendar2(id, year, month) {
         var Dlast = new Date(year,month+1,0).getDate(),
             D = new Date(year,month,Dlast),
@@ -401,89 +524,4 @@ $('.slider-post').slick({
     }
   ]
 });
-// меню на 996px-360px
-  let toggle = document.querySelectorAll(".menu-toggle__btn")[0];
-
-$(window).on('load resize',windowSize);
-
- function windowSize(){
-	if(this.innerWidth < 996){
-		$('.toggle-menu').css({display: "none"});
-	}
-
-	if(this.innerWidth >= 996){
-		$('.toggle-menu').removeAttr("style");
-	}
-}
-		$(window).on('load resize',windowSize);
-
-    toggle.addEventListener( "click", function(e) {
-      e.preventDefault();
-      if(this.classList.contains("menu-toggle_active") !== true){
-
-		    this.classList.add("menu-toggle_active");
-		  
-		    $('.toggle-menu').slideDown(500,"linear",function(){
-		    	$(this).css({
-			      display: "flex"
-			    })
-		    });
-      }else {
-      	this.classList.remove("menu-toggle_active");
-
-		$('.toggle-menu').slideUp(500,"linear",function(){
-				$(this).css({
-			      display: "none"
-			    })
-		});
-		
-      } 
-
-    });
- 
-$('.slider-items').slick({
-  dots: true,
-  arrows: false,
-  infinite: false,
-  speed: 700,
-  appendDots: $('.slider-dot'),
-  slidesToShow: 5,
-  slidesToScroll: 5,
-  responsive: [
-    {
-      breakpoint: 1200,
-      settings: {
-        slidesToShow: 4,
-        slidesToScroll: 4,
-        infinite: true,
-        dots: true
-      }
-    },
-    {
-      breakpoint: 996,
-      settings: {
-        slidesToShow: 3,
-        slidesToScroll: 3,
-        infinite: true,
-        dots: true
-      }
-    },
-    {
-      breakpoint: 600,
-      settings: {
-        slidesToShow: 2,
-        slidesToScroll: 2
-      }
-    },
-    {
-      breakpoint: 480,
-      settings: {
-        slidesToShow: 1,
-        slidesToScroll: 1
-      }
-    }
-  ]
-});
-
-$('slick-dots').eq(1).remove();
 });
