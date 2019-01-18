@@ -1,11 +1,11 @@
 .poll
-	h2.poll__question What do you think about site?
+	h2.poll__question Лучший фильм
 	.question-wrap
 		.question-radio
 			input(type="radio" id="q1" class="question-radio__checkbox" name="q1" value="email")
 			label(for="q1" class="question-radio__lable") 
 				span.question-radio__custom
-				| Amazing
+				| Мир дикого запада
 			.progress-bar
 				.progress-bar__count 234
 				span.progress-bar__proc.position_abs 
@@ -13,7 +13,7 @@
 			input(type="radio" id="q2" class="question-radio__checkbox" name="q2" value="email")
 			label(for="q2" class="question-radio__lable") 
 				span.question-radio__custom
-				| Good
+				| Джон Вик
 			.progress-bar 
 				.progress-bar__count 232
 				span.progress-bar__proc.position_abs 
@@ -21,7 +21,7 @@
 			input(type="radio" id="q3" class="question-radio__checkbox" name="q3" value="email")
 			label(for="q3" class="question-radio__lable") 
 				span.question-radio__custom
-				| Can Be Improved
+				| Веном
 			.progress-bar
 				.progress-bar__count 12
 				span.progress-bar__proc.position_abs 
@@ -29,13 +29,13 @@
 			input(type="radio" id="q4" class="question-radio__checkbox" name="q4" value="email")
 			label(for="q4" class="question-radio__lable") 
 				span.question-radio__custom
-				| Not Comments
+				| Варкрафт
 			.progress-bar
 				.progress-bar__count 900
 				span.progress-bar__proc.position_abs 
 	p.poll__send Ваш ответ отправлен!
 	.poll-btn
-		-var btnText ="Vote";
+		-var btnText ="Отправить";
 		include ../../gen_button/gen_button
-		-btnText ="View Results";
+		-btnText ="Результаты";
 		include ../../gen_button/gen_button

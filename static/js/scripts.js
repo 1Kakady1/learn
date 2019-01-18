@@ -1,4 +1,49 @@
 $(document).ready(function() {
+$('.slider-items').slick({
+  dots: true,
+  arrows: false,
+  infinite: false,
+  speed: 700,
+  appendDots: $('.slider-dot'),
+  slidesToShow: 5,
+  slidesToScroll: 5,
+  responsive: [
+    {
+      breakpoint: 1200,
+      settings: {
+        slidesToShow: 4,
+        slidesToScroll: 4,
+        infinite: true,
+        dots: true
+      }
+    },
+    {
+      breakpoint: 996,
+      settings: {
+        slidesToShow: 3,
+        slidesToScroll: 3,
+        infinite: true,
+        dots: true
+      }
+    },
+    {
+      breakpoint: 600,
+      settings: {
+        slidesToShow: 2,
+        slidesToScroll: 2
+      }
+    },
+    {
+      breakpoint: 480,
+      settings: {
+        slidesToShow: 1,
+        slidesToScroll: 1
+      }
+    }
+  ]
+});
+
+$('slick-dots').eq(1).remove();
 // меню на 996px-360px
   let toggle = document.querySelectorAll(".menu-toggle__btn")[0];
 
@@ -77,51 +122,6 @@ $newsBtn.on("click", function(e) {
     let $btnIndex = searchIndexBtn($(this)[0].lastElementChild);
     newsHide($btnIndex, $btnIndex-1);
   });
-$('.slider-items').slick({
-  dots: true,
-  arrows: false,
-  infinite: false,
-  speed: 700,
-  appendDots: $('.slider-dot'),
-  slidesToShow: 5,
-  slidesToScroll: 5,
-  responsive: [
-    {
-      breakpoint: 1200,
-      settings: {
-        slidesToShow: 4,
-        slidesToScroll: 4,
-        infinite: true,
-        dots: true
-      }
-    },
-    {
-      breakpoint: 996,
-      settings: {
-        slidesToShow: 3,
-        slidesToScroll: 3,
-        infinite: true,
-        dots: true
-      }
-    },
-    {
-      breakpoint: 600,
-      settings: {
-        slidesToShow: 2,
-        slidesToScroll: 2
-      }
-    },
-    {
-      breakpoint: 480,
-      settings: {
-        slidesToShow: 1,
-        slidesToScroll: 1
-      }
-    }
-  ]
-});
-
-$('slick-dots').eq(1).remove();
 function Calendar2(id, year, month) {
         var Dlast = new Date(year,month+1,0).getDate(),
             D = new Date(year,month,Dlast),
@@ -164,6 +164,9 @@ function Calendar2(id, year, month) {
     document.querySelector('#calendar thead tr:nth-child(1) td:nth-child(3)').onclick = function() {
       Calendar2("calendar", document.querySelector('#calendar thead td:nth-child(2)').dataset.year, parseFloat(document.querySelector('#calendar thead td:nth-child(2)').dataset.month)+1);
     }
+$('.btn-soc').on('click', function(e){
+    alert("Проблема работы сервера");
+});
 var initPhotoSwipeFromDOM = function(gallerySelector) {
 
     // parse slide data (url, title, size ...) from DOM elements 
@@ -369,9 +372,6 @@ var initPhotoSwipeFromDOM = function(gallerySelector) {
 
 // execute above function
 initPhotoSwipeFromDOM('.my-gallery');
-$('.btn-soc').on('click', function(e){
-    alert("Проблема работы сервера");
-});
 
 let $arrRadio = $('.question-radio > .question-radio__checkbox'),
 	$questionRadio = $('.question-radio'),
