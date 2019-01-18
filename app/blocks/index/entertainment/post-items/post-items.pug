@@ -3,29 +3,30 @@ include ./post/post-mixin
 	var postItems = [
 				{
 				  url: '#',
-				  img: '1.png',
-				  title: 'At vero eos et accusamus et iusto odio',
+				  img: 'The_Sisters_Brothers.png',
+				  title: 'Братья Систерс',
+				  faIcon: ['far fa-user', 'far fa-comment-dots']
+				},
+				{
+				  url: '#',
+				  img: 'iphone360_692861.jpg',
+				  title: 'Исчезнувшая',
 				  faIcon: ['far fa-user','far fa-calendar', 'far fa-comment-dots']
 				},
 				{
 				  url: '#',
-				  img: '1.png',
-				  title: 'At vero eos et accusamus et iusto odio',
+				  img: '575.jpg',
+				  title: 'Мир Дикого запада',
 				  faIcon: ['far fa-user','far fa-calendar', 'far fa-comment-dots']
 				},
 				{
 				  url: '#',
-				  img: '1.png',
-				  title: 'At vero eos et accusamus et iusto odio',
-				  faIcon: ['far fa-user','far fa-calendar', 'far fa-comment-dots']
-				},
-				{
-				  url: '#',
-				  img: '1.png',
-				  title: 'At vero eos et accusamus et iusto odio',
+				  img: 'iphone360_519.jpg',
+				  title: 'Человек дождя',
 				  faIcon: ['far fa-user','far fa-calendar', 'far fa-comment-dots']
 				},								                
 			];
+
 .post-items
 	each item in postItems
 		+printPostItems(item)
