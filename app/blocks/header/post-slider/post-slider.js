@@ -13,7 +13,15 @@ $('.slider-items').slick({
         slidesToShow: 4,
         slidesToScroll: 4,
         infinite: true,
-        dots: true
+      }
+    },
+    {
+      breakpoint: 1000,
+      settings: {
+        slidesToShow: 3,
+        slidesToScroll: 3,
+        infinite: true,
+        dots: false
       }
     },
     {
@@ -22,7 +30,7 @@ $('.slider-items').slick({
         slidesToShow: 3,
         slidesToScroll: 3,
         infinite: true,
-        dots: true
+        dots: false
       }
     },
     {
@@ -41,5 +49,3 @@ $('.slider-items').slick({
     }
   ]
 });
-
-$('slick-dots').eq(1).remove();

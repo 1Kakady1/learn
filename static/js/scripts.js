@@ -14,7 +14,15 @@ $('.slider-items').slick({
         slidesToShow: 4,
         slidesToScroll: 4,
         infinite: true,
-        dots: true
+      }
+    },
+    {
+      breakpoint: 1000,
+      settings: {
+        slidesToShow: 3,
+        slidesToScroll: 3,
+        infinite: true,
+        dots: false
       }
     },
     {
@@ -23,7 +31,7 @@ $('.slider-items').slick({
         slidesToShow: 3,
         slidesToScroll: 3,
         infinite: true,
-        dots: true
+        dots: false
       }
     },
     {
@@ -42,8 +50,6 @@ $('.slider-items').slick({
     }
   ]
 });
-
-$('slick-dots').eq(1).remove();
 // меню на 996px-360px
   let toggle = document.querySelectorAll(".menu-toggle__btn")[0];
 
@@ -373,6 +379,40 @@ var initPhotoSwipeFromDOM = function(gallerySelector) {
 // execute above function
 initPhotoSwipeFromDOM('.my-gallery');
 
+$('.mini-items').slick({
+  dots: true,
+  arrows: false,
+  infinite: false,
+  speed: 700,
+  appendDots: $('.dot-carusel'),
+  slidesToShow: 3,
+  slidesToScroll: 3,
+  responsive: [
+    {
+      breakpoint: 997,
+      settings: {
+        slidesToShow: 4,
+        slidesToScroll: 4,
+        infinite: true,
+        dots: true
+      }
+    },
+    {
+      breakpoint: 600,
+      settings: {
+        slidesToShow: 2,
+        slidesToScroll: 2
+      }
+    },
+    {
+      breakpoint: 480,
+      settings: {
+        slidesToShow: 1,
+        slidesToScroll: 1
+      }
+    }
+  ]
+});
 let $arrRadio = $('.question-radio > .question-radio__checkbox'),
 	$questionRadio = $('.question-radio'),
 	$questionRadioLable = $('.question-radio > .question-radio__lable'),
@@ -453,40 +493,6 @@ function progressVote(){
 		$progressBar.eq(i).attr('data-vote',dataVote);
 	}
 }
-$('.mini-items').slick({
-  dots: true,
-  arrows: false,
-  infinite: false,
-  speed: 700,
-  appendDots: $('.dot-carusel'),
-  slidesToShow: 3,
-  slidesToScroll: 3,
-  responsive: [
-    {
-      breakpoint: 1024,
-      settings: {
-        slidesToShow: 2,
-        slidesToScroll: 2,
-        infinite: true,
-        dots: true
-      }
-    },
-    {
-      breakpoint: 600,
-      settings: {
-        slidesToShow: 2,
-        slidesToScroll: 2
-      }
-    },
-    {
-      breakpoint: 480,
-      settings: {
-        slidesToShow: 1,
-        slidesToScroll: 1
-      }
-    }
-  ]
-});
 $('.slider-post').slick({
   dots: false,
   arrows: true,

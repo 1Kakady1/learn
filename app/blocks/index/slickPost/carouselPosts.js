@@ -8,10 +8,10 @@ $('.mini-items').slick({
   slidesToScroll: 3,
   responsive: [
     {
-      breakpoint: 1024,
+      breakpoint: 997,
       settings: {
-        slidesToShow: 2,
-        slidesToScroll: 2,
+        slidesToShow: 4,
+        slidesToScroll: 4,
         infinite: true,
         dots: true
       }
