@@ -73,3 +73,64 @@ footer
         line-height: 18px;
         font-size: 12px;
         color: #9F9F9F;
+
+@media screen and (max-width: 1100px)
+    .container-footer 
+        .menu  .menu__list
+            justify-content: flex-end
+        .footer-nav
+            width: 80%
+        .copuraite
+            width: 20%
+@media screen and (max-width: 996px)
+    .container-footer 
+
+        .menu  
+            .menu__list
+                flex-direction: row;
+            .menu__item
+                padding-top: 0
+                font-size: 11px;
+        
+        .box-item .content
+            width: 50%;
+@media screen and (max-width: 768px)
+    .container-footer 
+
+        .column-left
+            padding-right: 0;
+
+            .site-info__text
+                font-size: 9px;
+                width: 90%
+            .footer-social
+                flex-flow: row wrap
+                justify-content: center
+        .column-right
+            padding-left: 30px
+        
+        .menu  .menu__list
+            justify-content: center
+        .footer-nav
+            width: 100%
+
+        .copuraite
+            width: 100%
+            order: 2
+            text-align: center;
+@media screen and (max-width: 632px)
+    .container-footer  .column-left, .container-footer  .column-right
+         width: 100%;
+
+    .container-footer
+        .column-right
+            border-left: none
+            border-top: 1px solid #414141;
+@media screen and (max-width: 479px)
+    .container-footer
+        .menu  .menu__list
+            flex-flow: row wrap;
+    .container-footer .menu .menu__item
+        margin-top: 20px;
+
+     

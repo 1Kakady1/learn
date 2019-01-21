@@ -1,4 +1,42 @@
 $(document).ready(function() {
+let $newsList = $('.marquee > .marquee__row'),
+    $newsBtn = $('.button-social__btn');
+
+newsHide(1,0);
+
+function newsHide($m,$b){
+    for (let index = 0; index <$newsList.length; index++) {
+        $newsList.eq(index).css('display','none');
+    }
+
+    for (let index = 0; index <$newsBtn.length; index++) {
+        $newsBtn.eq(index).removeClass("button-social__active-blue");
+    }
+ 
+    $newsList.eq($b).css('display','block');
+    $newsBtn.eq($m).addClass("button-social__active-blue");
+}
+
+function searchIndexBtn($class){
+    let rez = null;
+    for (let index = 0; index < $newsBtn.length; index++) {
+        if($newsBtn[index].lastElementChild == $class){
+            rez = index;
+            break;
+        }
+        
+    }
+
+    return rez;
+
+}
+
+
+
+$newsBtn.on("click", function(e) {
+    let $btnIndex = searchIndexBtn($(this)[0].lastElementChild);
+    newsHide($btnIndex, $btnIndex-1);
+  });
 $('.slider-items').slick({
   dots: true,
   arrows: false,
@@ -90,44 +128,6 @@ $(window).on('load resize',windowSize);
 
     });
  
-let $newsList = $('.marquee > .marquee__row'),
-    $newsBtn = $('.button-social__btn');
-
-newsHide(1,0);
-
-function newsHide($m,$b){
-    for (let index = 0; index <$newsList.length; index++) {
-        $newsList.eq(index).css('display','none');
-    }
-
-    for (let index = 0; index <$newsBtn.length; index++) {
-        $newsBtn.eq(index).removeClass("button-social__active-blue");
-    }
- 
-    $newsList.eq($b).css('display','block');
-    $newsBtn.eq($m).addClass("button-social__active-blue");
-}
-
-function searchIndexBtn($class){
-    let rez = null;
-    for (let index = 0; index < $newsBtn.length; index++) {
-        if($newsBtn[index].lastElementChild == $class){
-            rez = index;
-            break;
-        }
-        
-    }
-
-    return rez;
-
-}
-
-
-
-$newsBtn.on("click", function(e) {
-    let $btnIndex = searchIndexBtn($(this)[0].lastElementChild);
-    newsHide($btnIndex, $btnIndex-1);
-  });
 function Calendar2(id, year, month) {
         var Dlast = new Date(year,month+1,0).getDate(),
             D = new Date(year,month,Dlast),
@@ -170,9 +170,6 @@ function Calendar2(id, year, month) {
     document.querySelector('#calendar thead tr:nth-child(1) td:nth-child(3)').onclick = function() {
       Calendar2("calendar", document.querySelector('#calendar thead td:nth-child(2)').dataset.year, parseFloat(document.querySelector('#calendar thead td:nth-child(2)').dataset.month)+1);
     }
-$('.btn-soc').on('click', function(e){
-    alert("Проблема работы сервера");
-});
 var initPhotoSwipeFromDOM = function(gallerySelector) {
 
     // parse slide data (url, title, size ...) from DOM elements 
@@ -378,6 +375,9 @@ var initPhotoSwipeFromDOM = function(gallerySelector) {
 
 // execute above function
 initPhotoSwipeFromDOM('.my-gallery');
+$('.btn-soc').on('click', function(e){
+    alert("Проблема работы сервера");
+});
 
 $('.mini-items').slick({
   dots: true,
@@ -398,10 +398,54 @@ $('.mini-items').slick({
       }
     },
     {
-      breakpoint: 600,
+      breakpoint:768,
+      settings: {
+        slidesToShow: 3,
+        slidesToScroll: 3
+      }
+    },
+    {
+      breakpoint: 580,
       settings: {
         slidesToShow: 2,
         slidesToScroll: 2
+      }
+    },
+    {
+      breakpoint: 480,
+      settings: {
+        slidesToShow: 1,
+        slidesToScroll: 1
+      }
+    }
+  ]
+});
+$('.slider-post').slick({
+  dots: false,
+  arrows: true,
+  nextArrow: $('.arrow-slider__next'),
+  prevArrow: $('.arrow-slider__prev'),
+  infinite: false,
+  fade: true,
+  speed: 900,
+  appendDots: $('.slider-dot'),
+  slidesToShow: 1,
+  slidesToScroll: 1,
+  responsive: [
+    {
+      breakpoint: 1024,
+      settings: {
+        slidesToShow: 1,
+        slidesToScroll: 1,
+        infinite: true,
+        dots: true
+      }
+    },
+    {
+      breakpoint: 600,
+      settings: {
+        slidesToShow: 1,
+        slidesToScroll: 1
       }
     },
     {
@@ -493,41 +537,4 @@ function progressVote(){
 		$progressBar.eq(i).attr('data-vote',dataVote);
 	}
 }
-$('.slider-post').slick({
-  dots: false,
-  arrows: true,
-  nextArrow: $('.arrow-slider__next'),
-  prevArrow: $('.arrow-slider__prev'),
-  infinite: false,
-  fade: true,
-  speed: 900,
-  appendDots: $('.slider-dot'),
-  slidesToShow: 1,
-  slidesToScroll: 1,
-  responsive: [
-    {
-      breakpoint: 1024,
-      settings: {
-        slidesToShow: 1,
-        slidesToScroll: 1,
-        infinite: true,
-        dots: true
-      }
-    },
-    {
-      breakpoint: 600,
-      settings: {
-        slidesToShow: 1,
-        slidesToScroll: 1
-      }
-    },
-    {
-      breakpoint: 480,
-      settings: {
-        slidesToShow: 1,
-        slidesToScroll: 1
-      }
-    }
-  ]
-});
 });
