@@ -125,10 +125,51 @@ function searchIndexBtn($class){
 
 
 $newsBtn.on("click", function(e) {
-    let $btnIndex = searchIndexBtn($(this)[0].lastElementChild);
-    newsHide($btnIndex, $btnIndex-1);
+    console.log($(this))
+    if($(this)[0].classList[1] !== "search-submit"){
+        let $btnIndex = searchIndexBtn($(this)[0].lastElementChild);
+        newsHide($btnIndex, $btnIndex-1);
+    }
   });
+let $searchBtn = $(".search-submit"),
+    $searchBlock = $(".search"),
+    $searchResultElements = $(".search-result > .search-result__item"),
+    $searchInputElement=$('.search-inv__input');
+    
+$searchBtn.on("click", function(e) {
+        e.preventDefault();
 
+            if(this.classList.contains("search-submit_active") !== true){
+
+                this.classList.add("search-submit_active");
+            
+                $searchBlock.slideDown(500,"linear",function(){
+                    $(this).css({
+                    display: "block"
+                    })
+                });
+        }else {
+            this.classList.remove("search-submit_active");
+
+            $searchBlock.slideUp(500,"linear",function(){
+                    $(this).css({
+                    display: "none"
+                    })
+            });
+            
+        } 
+
+});
+
+$searchResultElements.on("click", function(e) {
+    e.preventDefault();
+    console.log($(this)[0].innerText);
+    $searchInputElement[0].value = $(this)[0].innerText;
+});
+
+// ajax получение запросов для поиска, подстановка в .search-result > .search-result__item
+    // КОД
+//
 function Calendar2(id, year, month) {
         var Dlast = new Date(year,month+1,0).getDate(),
             D = new Date(year,month,Dlast),
@@ -380,6 +421,47 @@ $('.btn-soc').on('click', function(e){
     alert("Проблема работы сервера");
 });
 
+$('.mini-items').slick({
+  dots: true,
+  arrows: false,
+  infinite: false,
+  speed: 700,
+  appendDots: $('.dot-carusel'),
+  slidesToShow: 3,
+  slidesToScroll: 3,
+  responsive: [
+    {
+      breakpoint: 997,
+      settings: {
+        slidesToShow: 4,
+        slidesToScroll: 4,
+        infinite: true,
+        dots: true
+      }
+    },
+    {
+      breakpoint:768,
+      settings: {
+        slidesToShow: 3,
+        slidesToScroll: 3
+      }
+    },
+    {
+      breakpoint: 580,
+      settings: {
+        slidesToShow: 2,
+        slidesToScroll: 2
+      }
+    },
+    {
+      breakpoint: 480,
+      settings: {
+        slidesToShow: 1,
+        slidesToScroll: 1
+      }
+    }
+  ]
+});
 let $arrRadio = $('.question-radio > .question-radio__checkbox'),
 	$questionRadio = $('.question-radio'),
 	$questionRadioLable = $('.question-radio > .question-radio__lable'),
@@ -460,47 +542,6 @@ function progressVote(){
 		$progressBar.eq(i).attr('data-vote',dataVote);
 	}
 }
-$('.mini-items').slick({
-  dots: true,
-  arrows: false,
-  infinite: false,
-  speed: 700,
-  appendDots: $('.dot-carusel'),
-  slidesToShow: 3,
-  slidesToScroll: 3,
-  responsive: [
-    {
-      breakpoint: 997,
-      settings: {
-        slidesToShow: 4,
-        slidesToScroll: 4,
-        infinite: true,
-        dots: true
-      }
-    },
-    {
-      breakpoint:768,
-      settings: {
-        slidesToShow: 3,
-        slidesToScroll: 3
-      }
-    },
-    {
-      breakpoint: 580,
-      settings: {
-        slidesToShow: 2,
-        slidesToScroll: 2
-      }
-    },
-    {
-      breakpoint: 480,
-      settings: {
-        slidesToShow: 1,
-        slidesToScroll: 1
-      }
-    }
-  ]
-});
 $('.slider-post').slick({
   dots: false,
   arrows: true,

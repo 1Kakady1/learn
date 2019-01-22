@@ -1,16 +1,18 @@
 .search
     background: #2d2d2d
+    display: none
     .search
-
         &-form
             display: flex
             flex-direction: column
+            padding-bottom: 10px
 
         &-inv
             width: 100%
             display: flex
             justify-content: flex-end
-            padding-right: 20px 
+            padding-right: 20px
+            padding-left: 20px  
             padding-top: 10px
             padding-bottom: 20px
             &__input
@@ -53,3 +55,10 @@
                     transition: all 200ms linear
                     background: #55b2f3
                     cursor: pointer
+
+.search-submit_active
+    background: #e75757
+
+@media screen and (max-width: 996px)
+    .search .search-inv__input
+        width: 100%

@@ -33,6 +33,9 @@ function searchIndexBtn($class){
 
 
 $newsBtn.on("click", function(e) {
-    let $btnIndex = searchIndexBtn($(this)[0].lastElementChild);
-    newsHide($btnIndex, $btnIndex-1);
+    console.log($(this))
+    if($(this)[0].classList[1] !== "search-submit"){
+        let $btnIndex = searchIndexBtn($(this)[0].lastElementChild);
+        newsHide($btnIndex, $btnIndex-1);
+    }
   });
