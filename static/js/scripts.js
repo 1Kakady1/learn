@@ -1,217 +1,49 @@
 $(document).ready(function() {
-// меню на 996px-360px
-  let toggle = document.querySelectorAll(".menu-toggle__btn")[0];
-
-$(window).on('load resize',windowSize);
-
- function windowSize(){
-	if(this.innerWidth < 996){
-		$('.toggle-menu').css({display: "none"});
-	}
-
-	if(this.innerWidth >= 996){
-		$('.toggle-menu').removeAttr("style");
-	}
-}
-		$(window).on('load resize',windowSize);
-
-    toggle.addEventListener( "click", function(e) {
-      e.preventDefault();
-      if(this.classList.contains("menu-toggle_active") !== true){
-
-		    this.classList.add("menu-toggle_active");
-		  
-		    $('.toggle-menu').slideDown(500,"linear",function(){
-		    	$(this).css({
-			      display: "flex"
-			    })
-		    });
-      }else {
-      	this.classList.remove("menu-toggle_active");
-
-		$('.toggle-menu').slideUp(500,"linear",function(){
-				$(this).css({
-			      display: "none"
-			    })
-		});
-		
-      } 
-
-    });
- 
-$('.slider-items').slick({
-  dots: true,
-  arrows: false,
-  infinite: false,
-  speed: 700,
-  appendDots: $('.slider-dot'),
-  slidesToShow: 5,
-  slidesToScroll: 5,
-  responsive: [
-    {
-      breakpoint: 1200,
-      settings: {
-        slidesToShow: 4,
-        slidesToScroll: 4,
-        infinite: true,
-      }
-    },
-    {
-      breakpoint: 1000,
-      settings: {
-        slidesToShow: 3,
-        slidesToScroll: 3,
-        infinite: true,
-        dots: false
-      }
-    },
-    {
-      breakpoint: 996,
-      settings: {
-        slidesToShow: 3,
-        slidesToScroll: 3,
-        infinite: true,
-        dots: false
-      }
-    },
-    {
-      breakpoint: 600,
-      settings: {
-        slidesToShow: 2,
-        slidesToScroll: 2
-      }
-    },
-    {
-      breakpoint: 480,
-      settings: {
-        slidesToShow: 1,
-        slidesToScroll: 1
-      }
-    }
-  ]
-});
-let $newsList = $('.marquee > .marquee__row'),
-    $newsBtn = $('.button-social__btn');
-
-newsHide(1,0);
-
-function newsHide($m,$b){
-    for (let index = 0; index <$newsList.length; index++) {
-        $newsList.eq(index).css('display','none');
-    }
-
-    for (let index = 0; index <$newsBtn.length; index++) {
-        $newsBtn.eq(index).removeClass("button-social__active-blue");
-    }
- 
-    $newsList.eq($b).css('display','block');
-    $newsBtn.eq($m).addClass("button-social__active-blue");
-}
-
-function searchIndexBtn($class){
-    let rez = null;
-    for (let index = 0; index < $newsBtn.length; index++) {
-        if($newsBtn[index].lastElementChild == $class){
-            rez = index;
-            break;
-        }
-        
-    }
-
-    return rez;
-
-}
-
-
-
-$newsBtn.on("click", function(e) {
-    console.log($(this))
-    if($(this)[0].classList[1] !== "search-submit"){
-        let $btnIndex = searchIndexBtn($(this)[0].lastElementChild);
-        newsHide($btnIndex, $btnIndex-1);
-    }
-  });
-let $searchBtn = $(".search-submit"),
-    $searchBlock = $(".search"),
-    $searchResultElements = $(".search-result > .search-result__item"),
-    $searchInputElement=$('.search-inv__input');
-    
-$searchBtn.on("click", function(e) {
-        e.preventDefault();
-
-            if(this.classList.contains("search-submit_active") !== true){
-
-                this.classList.add("search-submit_active");
+console.log(document.getElementsByClassName("calendar-wrapper"));
+if(document.getElementsByClassName("calendar-wrapper")!= null && document.getElementsByClassName("calendar-wrapper").length!= 0){
+    function Calendar2(id, year, month) {
+            var Dlast = new Date(year,month+1,0).getDate(),
+                D = new Date(year,month,Dlast),
+                DNlast = new Date(D.getFullYear(),D.getMonth(),Dlast).getDay(),
+                DNfirst = new Date(D.getFullYear(),D.getMonth(),1).getDay(),
+                calendar = '<tr>',
+                month=["Январь","Февраль","Март","Апрель","Май","Июнь","Июль","Август","Сентябрь","Октябрь","Ноябрь","Декабрь"];
+            if (DNfirst != 0) {
+            for(var  i = 1; i < DNfirst; i++) calendar += '<td>';
+            }else{
+            for(var  i = 0; i < 6; i++) calendar += '<td>';
+            }
+            for(var  i = 1; i <= Dlast; i++) {
+            if (i == new Date().getDate() && D.getFullYear() == new Date().getFullYear() && D.getMonth() == new Date().getMonth()) {
+                calendar += '<td class="today">' + i;
+            }else{
+                calendar += '<td>' + i;
+            }
+            if (new Date(D.getFullYear(),D.getMonth(),i).getDay() == 0) {
+                calendar += '<tr>';
+            }
+            }
             
-                $searchBlock.slideDown(500,"linear",function(){
-                    $(this).css({
-                    display: "block"
-                    })
-                });
-        }else {
-            this.classList.remove("search-submit_active");
-
-            $searchBlock.slideUp(500,"linear",function(){
-                    $(this).css({
-                    display: "none"
-                    })
-            });
-            
-        } 
-
-});
-
-$searchResultElements.on("click", function(e) {
-    e.preventDefault();
-    console.log($(this)[0].innerText);
-    $searchInputElement[0].value = $(this)[0].innerText;
-});
-
-// ajax получение запросов для поиска, подстановка в .search-result > .search-result__item
-    // КОД
-//
-function Calendar2(id, year, month) {
-        var Dlast = new Date(year,month+1,0).getDate(),
-            D = new Date(year,month,Dlast),
-            DNlast = new Date(D.getFullYear(),D.getMonth(),Dlast).getDay(),
-            DNfirst = new Date(D.getFullYear(),D.getMonth(),1).getDay(),
-            calendar = '<tr>',
-            month=["Январь","Февраль","Март","Апрель","Май","Июнь","Июль","Август","Сентябрь","Октябрь","Ноябрь","Декабрь"];
-        if (DNfirst != 0) {
-        for(var  i = 1; i < DNfirst; i++) calendar += '<td>';
-        }else{
-        for(var  i = 0; i < 6; i++) calendar += '<td>';
+            for(var  i = DNlast; i < 7; i++) calendar += '<td>&nbsp;';
+            document.querySelector('#'+id+' tbody').innerHTML = calendar;
+            document.querySelector('#'+id+' thead td:nth-child(2)').innerHTML = month[D.getMonth()] +' '+ D.getFullYear();
+            document.querySelector('#'+id+' thead td:nth-child(2)').dataset.month = D.getMonth();
+            document.querySelector('#'+id+' thead td:nth-child(2)').dataset.year = D.getFullYear();
+            if (document.querySelectorAll('#'+id+' tbody tr').length < 6) {
+                document.querySelector('#'+id+' tbody').innerHTML += '<tr><td>&nbsp;<td>&nbsp;<td>&nbsp;<td>&nbsp;<td>&nbsp;<td>&nbsp;<td>&nbsp;';
+            }
         }
-        for(var  i = 1; i <= Dlast; i++) {
-        if (i == new Date().getDate() && D.getFullYear() == new Date().getFullYear() && D.getMonth() == new Date().getMonth()) {
-            calendar += '<td class="today">' + i;
-        }else{
-            calendar += '<td>' + i;
-        }
-        if (new Date(D.getFullYear(),D.getMonth(),i).getDay() == 0) {
-            calendar += '<tr>';
-        }
-        }
-        console.log(calendar);
-        for(var  i = DNlast; i < 7; i++) calendar += '<td>&nbsp;';
-        document.querySelector('#'+id+' tbody').innerHTML = calendar;
-        document.querySelector('#'+id+' thead td:nth-child(2)').innerHTML = month[D.getMonth()] +' '+ D.getFullYear();
-        document.querySelector('#'+id+' thead td:nth-child(2)').dataset.month = D.getMonth();
-        document.querySelector('#'+id+' thead td:nth-child(2)').dataset.year = D.getFullYear();
-        if (document.querySelectorAll('#'+id+' tbody tr').length < 6) {
-            document.querySelector('#'+id+' tbody').innerHTML += '<tr><td>&nbsp;<td>&nbsp;<td>&nbsp;<td>&nbsp;<td>&nbsp;<td>&nbsp;<td>&nbsp;';
-        }
-    }
 
-    Calendar2("calendar", new Date().getFullYear(), new Date().getMonth());
+        Calendar2("calendar", new Date().getFullYear(), new Date().getMonth());
 
-    document.querySelector('#calendar thead tr:nth-child(1) td:nth-child(1)').onclick = function() {
-      Calendar2("calendar", document.querySelector('#calendar thead td:nth-child(2)').dataset.year, parseFloat(document.querySelector('#calendar thead td:nth-child(2)').dataset.month)-1);
-    }
+        document.querySelector('#calendar thead tr:nth-child(1) td:nth-child(1)').onclick = function() {
+        Calendar2("calendar", document.querySelector('#calendar thead td:nth-child(2)').dataset.year, parseFloat(document.querySelector('#calendar thead td:nth-child(2)').dataset.month)-1);
+        }
 
-    document.querySelector('#calendar thead tr:nth-child(1) td:nth-child(3)').onclick = function() {
-      Calendar2("calendar", document.querySelector('#calendar thead td:nth-child(2)').dataset.year, parseFloat(document.querySelector('#calendar thead td:nth-child(2)').dataset.month)+1);
-    }
+        document.querySelector('#calendar thead tr:nth-child(1) td:nth-child(3)').onclick = function() {
+        Calendar2("calendar", document.querySelector('#calendar thead td:nth-child(2)').dataset.year, parseFloat(document.querySelector('#calendar thead td:nth-child(2)').dataset.month)+1);
+        }
+}
 var initPhotoSwipeFromDOM = function(gallerySelector) {
 
     // parse slide data (url, title, size ...) from DOM elements 
@@ -568,6 +400,177 @@ $('.slider-post').slick({
       settings: {
         slidesToShow: 1,
         slidesToScroll: 1
+      }
+    },
+    {
+      breakpoint: 480,
+      settings: {
+        slidesToShow: 1,
+        slidesToScroll: 1
+      }
+    }
+  ]
+});
+// меню на 996px-360px
+  let toggle = document.querySelectorAll(".menu-toggle__btn")[0];
+
+$(window).on('load resize',windowSize);
+
+ function windowSize(){
+	if(this.innerWidth < 996){
+		$('.toggle-menu').css({display: "none"});
+	}
+
+	if(this.innerWidth >= 996){
+		$('.toggle-menu').removeAttr("style");
+	}
+}
+		$(window).on('load resize',windowSize);
+
+    toggle.addEventListener( "click", function(e) {
+      e.preventDefault();
+      if(this.classList.contains("menu-toggle_active") !== true){
+
+		    this.classList.add("menu-toggle_active");
+		  
+		    $('.toggle-menu').slideDown(500,"linear",function(){
+		    	$(this).css({
+			      display: "flex"
+			    })
+		    });
+      }else {
+      	this.classList.remove("menu-toggle_active");
+
+		$('.toggle-menu').slideUp(500,"linear",function(){
+				$(this).css({
+			      display: "none"
+			    })
+		});
+		
+      } 
+
+    });
+ 
+let $newsList = $('.marquee > .marquee__row'),
+    $newsBtn = $('.button-social__btn');
+
+newsHide(1,0);
+
+function newsHide($m,$b){
+    for (let index = 0; index <$newsList.length; index++) {
+        $newsList.eq(index).css('display','none');
+    }
+
+    for (let index = 0; index <$newsBtn.length; index++) {
+        $newsBtn.eq(index).removeClass("button-social__active-blue");
+    }
+ 
+    $newsList.eq($b).css('display','block');
+    $newsBtn.eq($m).addClass("button-social__active-blue");
+}
+
+function searchIndexBtn($class){
+    let rez = null;
+    for (let index = 0; index < $newsBtn.length; index++) {
+        if($newsBtn[index].lastElementChild == $class){
+            rez = index;
+            break;
+        }
+        
+    }
+
+    return rez;
+
+}
+
+
+
+$newsBtn.on("click", function(e) {
+    console.log($(this))
+    if($(this)[0].classList[1] !== "search-submit"){
+        let $btnIndex = searchIndexBtn($(this)[0].lastElementChild);
+        newsHide($btnIndex, $btnIndex-1);
+    }
+  });
+let $searchBtn = $(".search-submit"),
+    $searchBlock = $(".search"),
+    $searchResultElements = $(".search-result > .search-result__item"),
+    $searchInputElement=$('.search-inv__input');
+    
+$searchBtn.on("click", function(e) {
+        e.preventDefault();
+
+            if(this.classList.contains("search-submit_active") !== true){
+
+                this.classList.add("search-submit_active");
+            
+                $searchBlock.slideDown(500,"linear",function(){
+                    $(this).css({
+                    display: "block"
+                    })
+                });
+        }else {
+            this.classList.remove("search-submit_active");
+
+            $searchBlock.slideUp(500,"linear",function(){
+                    $(this).css({
+                    display: "none"
+                    })
+            });
+            
+        } 
+
+});
+
+$searchResultElements.on("click", function(e) {
+    e.preventDefault();
+    console.log($(this)[0].innerText);
+    $searchInputElement[0].value = $(this)[0].innerText;
+});
+
+// ajax получение запросов для поиска, подстановка в .search-result > .search-result__item
+    // КОД
+//
+$('.slider-items').slick({
+  dots: true,
+  arrows: false,
+  infinite: false,
+  speed: 700,
+  appendDots: $('.slider-dot'),
+  slidesToShow: 5,
+  slidesToScroll: 5,
+  responsive: [
+    {
+      breakpoint: 1200,
+      settings: {
+        slidesToShow: 4,
+        slidesToScroll: 4,
+        infinite: true,
+      }
+    },
+    {
+      breakpoint: 1000,
+      settings: {
+        slidesToShow: 3,
+        slidesToScroll: 3,
+        infinite: true,
+        dots: false
+      }
+    },
+    {
+      breakpoint: 996,
+      settings: {
+        slidesToShow: 3,
+        slidesToScroll: 3,
+        infinite: true,
+        dots: false
+      }
+    },
+    {
+      breakpoint: 600,
+      settings: {
+        slidesToShow: 2,
+        slidesToScroll: 2
       }
     },
     {
