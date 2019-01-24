@@ -2,7 +2,7 @@
 	.column-left
 		.post-name
 			h1.post-name__title Мистер Робот
-			h2.post-name__title.post-name__title--en Mr. Robot
+			h2.post-name__title--en Mr. Robot
 		.post-info
 			.preview.post-info__left
 				img(src="./img/misterR.jpg" class="preview__size" alt="Мистер Робот")
@@ -34,9 +34,9 @@
 			p.article__text Выдающиеся способности Эллиота пользуется спросом среди организаций правительственного уровня, специализирующихся на кибербезопасности. Но однажды на связь с парнем выходит некий мистер Робот, являющийся лидером крупного подпольного движения, которое прикрываясь громкими лозунгами, на самом деле хочет обрушить крупнейшие американские корпорации…
 		section.tabs-view
 			.tabs
-				button(type="sybmit" class="tabs__gallary") Кадры из фильма
-				button(type="sybmit" class="tabs__video") Смотреть
-			.gallary.tags-view__gallery
+				button(type="sybmit" class="tabs__gallary gen-button tabs_active" data-tab=0) Кадры из фильма
+				button(type="sybmit" class="tabs__video gen-button" data-tab=1) Смотреть
+			.gallary.flipInX.tabs-view__gallery
 				.pswp(tabindex='-1' role='dialog' aria-hidden='true')
 					.pswp__bg
 					.pswp__scroll-wrap
@@ -81,7 +81,7 @@
 					figure(itemprop='associatedMedia' itemscope='' class="my-gallery__figure" itemtype='./img/mg.jpg')
 						a(href='./img/mg.jpg' itemprop='contentUrl' class="my-gallery__link" data-size='1024 x 768')
 							img(src='./img/mg.jpg' itemprop='thumbnail' class="my-gallery__full-img" alt='Image description')            
-			.video.tabs-view__video
+			.video.flipInX.tabs-view__video
 				h2.video__title Смотреть "Мистер Робот"
 				video( controls="controls" class="video__size" poster="./res/img/dart.jpg")
 					source(src="./res/video/dart.mp4" type='video/mp4; codecs="avc1.42E01E, mp4a.40.2"')

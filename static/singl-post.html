@@ -241,7 +241,7 @@
         <div class="column-left">
           <div class="post-name">
             <h1 class="post-name__title">Мистер Робот</h1>
-            <h2 class="post-name__title post-name__title--en">Mr. Robot</h2>
+            <h2 class="post-name__title--en">Mr. Robot</h2>
           </div>
           <div class="post-info">
             <div class="preview post-info__left"><img class="preview__size" src="./img/misterR.jpg" alt="Мистер Робот"></div>
@@ -283,10 +283,10 @@
           </article>
           <section class="tabs-view">
             <div class="tabs">
-              <button class="tabs__gallary" type="sybmit">Кадры из фильма</button>
-              <button class="tabs__video" type="sybmit">Смотреть</button>
+              <button class="tabs__gallary gen-button tabs_active" type="sybmit" data-tab="0">Кадры из фильма</button>
+              <button class="tabs__video gen-button" type="sybmit" data-tab="1">Смотреть</button>
             </div>
-            <div class="gallary tags-view__gallery">
+            <div class="gallary flipInX tabs-view__gallery">
               <div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
                 <div class="pswp__bg"></div>
                 <div class="pswp__scroll-wrap">
@@ -331,7 +331,7 @@
                 <figure class="my-gallery__figure" itemprop="associatedMedia" itemscope="" itemtype="./img/mg.jpg"><a class="my-gallery__link" href="./img/mg.jpg" itemprop="contentUrl" data-size="1024 x 768"><img class="my-gallery__full-img" src="./img/mg.jpg" itemprop="thumbnail" alt="Image description"></a></figure>
               </div>
             </div>
-            <div class="video tabs-view__video">
+            <div class="video flipInX tabs-view__video">
               <h2 class="video__title">Смотреть "Мистер Робот"</h2>
               <video class="video__size" controls="controls" poster="./res/img/dart.jpg">
                 <source src="./res/video/dart.mp4" type="video/mp4; codecs=&quot;avc1.42E01E, mp4a.40.2&quot;">

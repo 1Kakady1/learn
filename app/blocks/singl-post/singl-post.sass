@@ -3,9 +3,8 @@
     display: flex
     flex-flow: row wrap
     .column-left
-        padding: 0
+        padding: 0 36px 0 36px
         width: 77%
-        padding: 15px
     .column-right
         padding: 15px
         padding-top: 0px
@@ -13,6 +12,32 @@
         border-left: 1px solid #dad7d7;
         .box-content:nth-child(1)
             padding-top: 0px
+
+.post-name
+    &__title,&__title--en
+        font-family: "RobotoRegular", sans-serif
+        font-style: normal
+        font-weight: normal
+        line-height: 20px
+        letter-spacing: 0.3px
+        color: #383d40
+        &--en
+            font-size: 15px
+
+.t-info
+    &__column-left,&__column-right
+        font-family: "RobotoRegular", sans-serif
+        line-height: 20px
+        letter-spacing: 0.3px
+        color: #383d40
+        font-size: 22px
+    &__column-left
+        font-weight: bold
+        padding: 15px;
+    &__column-right
+        padding-left: 20px
+    &__wrapper
+        margin-bottom: 20px
 
 .singl-post
     .post-info
@@ -30,6 +55,35 @@
     &__size
         width: 100%
         height: 100%
+.article
+    &__title,&__text
+        font-family: "RobotoRegular", sans-serif
+        line-height: 20px
+        letter-spacing: 0.3px
+        color: #383d40
+    &__text
+        letter-spacing: 0.5px
+
+.tabs-view
+    overflow: hidden
+    .tabs
+        &__video
+            margin-left: -3px
+            border-radius: 0 17px 17px 0
+        &__gallary
+            border-radius: 17px 0 0 17px;
+        &_active
+            background: #55B2F3!important
+        &-view
+            &__gallery, &__video
+                display: none
+
+.cadr,.video__title
+    font-family: "RobotoRegular", sans-serif
+    color: #383d40
+
+.video .video__size
+    width: 100%
 .comments
     width: 100%
     .comments-column
@@ -46,3 +100,43 @@
         width: 50%
     &__btn
         width: 100%
+
+@keyframes flipInX
+  from
+    transform: perspective(400px) rotate3d(1, 0, 0, 90deg);
+    animation-timing-function: ease-in;
+    opacity: 0;
+  40%
+    transform: perspective(400px) rotate3d(1, 0, 0, -20deg);
+    animation-timing-function: ease-in;
+  60%
+    transform: perspective(400px) rotate3d(1, 0, 0, 10deg);
+    opacity: 1;
+  80%
+    transform: perspective(400px) rotate3d(1, 0, 0, -5deg);
+  to
+    transform: perspective(400px);
+
+@-webkit-keyframes flipInX
+  from
+    -webkit-transform: perspective(400px) rotate3d(1, 0, 0, 90deg);
+    -webkit-animation-timing-function: ease-in;
+    opacity: 0;
+  40%
+    -webkit-transform: perspective(400px) rotate3d(1, 0, 0, -20deg);
+    -webkit-animation-timing-function: ease-in;
+  60%
+    -webkit-transform: perspective(400px) rotate3d(1, 0, 0, 10deg);
+    opacity: 1;
+  80%
+    -webkit-transform: perspective(400px) rotate3d(1, 0, 0, -5deg);
+  to
+    -webkit-transform: perspective(400px);
+
+.flipInX
+    backface-visibility: visible !important;
+    -webkit-backface-visibility: visible !important;
+    animation-name: flipInX;
+    -webkit-animation-name: flipInX;
+    animation-duration: 1s;
+    animation-fill-mode: both;

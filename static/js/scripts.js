@@ -1,4 +1,28 @@
 $(document).ready(function() {
+let $singlPostTab= $('.tabs-view .tabs > button'),
+    $tagsViewGallery=$(".tabs-view__gallery"),
+    $tabsViewVideo = $(".tabs-view__video");
+
+$tagsViewGallery.css("display","block"); 
+
+$singlPostTab.on('click',function(e){
+    for (let index = 0; index < $singlPostTab.length; index++) {
+        $singlPostTab.eq(index).removeClass("tabs_active");
+    }
+
+    $(this).addClass("tabs_active");
+    let $dataIndex = $(this).data("tab");
+console.log($dataIndex);
+    if($dataIndex == 0){
+        $tagsViewGallery.css("display","block");
+        $tabsViewVideo.removeAttr("style");
+    }
+
+    if($dataIndex == 1){
+        $tabsViewVideo.css("display","block");
+        $tagsViewGallery.removeAttr("style");
+    }
+});
 console.log(document.getElementsByClassName("calendar-wrapper"));
 if(document.getElementsByClassName("calendar-wrapper")!= null && document.getElementsByClassName("calendar-wrapper").length!= 0){
     function Calendar2(id, year, month) {
@@ -249,51 +273,6 @@ var initPhotoSwipeFromDOM = function(gallerySelector) {
 
 // execute above function
 initPhotoSwipeFromDOM('.my-gallery');
-$('.btn-soc').on('click', function(e){
-    alert("Проблема работы сервера");
-});
-
-$('.mini-items').slick({
-  dots: true,
-  arrows: false,
-  infinite: false,
-  speed: 700,
-  appendDots: $('.dot-carusel'),
-  slidesToShow: 3,
-  slidesToScroll: 3,
-  responsive: [
-    {
-      breakpoint: 997,
-      settings: {
-        slidesToShow: 4,
-        slidesToScroll: 4,
-        infinite: true,
-        dots: true
-      }
-    },
-    {
-      breakpoint:768,
-      settings: {
-        slidesToShow: 3,
-        slidesToScroll: 3
-      }
-    },
-    {
-      breakpoint: 580,
-      settings: {
-        slidesToShow: 2,
-        slidesToScroll: 2
-      }
-    },
-    {
-      breakpoint: 480,
-      settings: {
-        slidesToShow: 1,
-        slidesToScroll: 1
-      }
-    }
-  ]
-});
 let $arrRadio = $('.question-radio > .question-radio__checkbox'),
 	$questionRadio = $('.question-radio'),
 	$questionRadioLable = $('.question-radio > .question-radio__lable'),
@@ -374,6 +353,51 @@ function progressVote(){
 		$progressBar.eq(i).attr('data-vote',dataVote);
 	}
 }
+$('.btn-soc').on('click', function(e){
+    alert("Проблема работы сервера");
+});
+$('.mini-items').slick({
+  dots: true,
+  arrows: false,
+  infinite: false,
+  speed: 700,
+  appendDots: $('.dot-carusel'),
+  slidesToShow: 3,
+  slidesToScroll: 3,
+  responsive: [
+    {
+      breakpoint: 997,
+      settings: {
+        slidesToShow: 4,
+        slidesToScroll: 4,
+        infinite: true,
+        dots: true
+      }
+    },
+    {
+      breakpoint:768,
+      settings: {
+        slidesToShow: 3,
+        slidesToScroll: 3
+      }
+    },
+    {
+      breakpoint: 580,
+      settings: {
+        slidesToShow: 2,
+        slidesToScroll: 2
+      }
+    },
+    {
+      breakpoint: 480,
+      settings: {
+        slidesToShow: 1,
+        slidesToScroll: 1
+      }
+    }
+  ]
+});
+
 $('.slider-post').slick({
   dots: false,
   arrows: true,
@@ -451,6 +475,57 @@ $(window).on('load resize',windowSize);
 
     });
  
+$('.slider-items').slick({
+  dots: true,
+  arrows: false,
+  infinite: false,
+  speed: 700,
+  appendDots: $('.slider-dot'),
+  slidesToShow: 5,
+  slidesToScroll: 5,
+  responsive: [
+    {
+      breakpoint: 1200,
+      settings: {
+        slidesToShow: 4,
+        slidesToScroll: 4,
+        infinite: true,
+      }
+    },
+    {
+      breakpoint: 1000,
+      settings: {
+        slidesToShow: 3,
+        slidesToScroll: 3,
+        infinite: true,
+        dots: false
+      }
+    },
+    {
+      breakpoint: 996,
+      settings: {
+        slidesToShow: 3,
+        slidesToScroll: 3,
+        infinite: true,
+        dots: false
+      }
+    },
+    {
+      breakpoint: 600,
+      settings: {
+        slidesToShow: 2,
+        slidesToScroll: 2
+      }
+    },
+    {
+      breakpoint: 480,
+      settings: {
+        slidesToShow: 1,
+        slidesToScroll: 1
+      }
+    }
+  ]
+});
 let $newsList = $('.marquee > .marquee__row'),
     $newsBtn = $('.button-social__btn');
 
@@ -531,55 +606,4 @@ $searchResultElements.on("click", function(e) {
 // ajax получение запросов для поиска, подстановка в .search-result > .search-result__item
     // КОД
 //
-$('.slider-items').slick({
-  dots: true,
-  arrows: false,
-  infinite: false,
-  speed: 700,
-  appendDots: $('.slider-dot'),
-  slidesToShow: 5,
-  slidesToScroll: 5,
-  responsive: [
-    {
-      breakpoint: 1200,
-      settings: {
-        slidesToShow: 4,
-        slidesToScroll: 4,
-        infinite: true,
-      }
-    },
-    {
-      breakpoint: 1000,
-      settings: {
-        slidesToShow: 3,
-        slidesToScroll: 3,
-        infinite: true,
-        dots: false
-      }
-    },
-    {
-      breakpoint: 996,
-      settings: {
-        slidesToShow: 3,
-        slidesToScroll: 3,
-        infinite: true,
-        dots: false
-      }
-    },
-    {
-      breakpoint: 600,
-      settings: {
-        slidesToShow: 2,
-        slidesToScroll: 2
-      }
-    },
-    {
-      breakpoint: 480,
-      settings: {
-        slidesToShow: 1,
-        slidesToScroll: 1
-      }
-    }
-  ]
-});
 });
