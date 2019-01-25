@@ -6,13 +6,16 @@ let $singlPostTab= $('.tabs-view .tabs > button'),
 $tagsViewGallery.css("display","block"); 
 
 $singlPostTab.on('click',function(e){
+
+    e.preventDefault()
+
     for (let index = 0; index < $singlPostTab.length; index++) {
         $singlPostTab.eq(index).removeClass("tabs_active");
     }
 
     $(this).addClass("tabs_active");
     let $dataIndex = $(this).data("tab");
-console.log($dataIndex);
+
     if($dataIndex == 0){
         $tagsViewGallery.css("display","block");
         $tabsViewVideo.removeAttr("style");
@@ -22,6 +25,194 @@ console.log($dataIndex);
         $tabsViewVideo.css("display","block");
         $tagsViewGallery.removeAttr("style");
     }
+});
+
+///////// форма ////////
+
+// ajax отправка
+    $(".form__btn").click(function(e){
+        e.preventDefault();
+        alert("Проблема работы сервера")
+    });
+// ajax end
+
+let $textarea = $('.comments-form .form .form-right .input'),
+    $buttonComFormOtv = $(".msg-com__btn");
+
+$buttonComFormOtv.on('click',function(e){
+    e.preventDefault();
+    $textarea.val($(this).data("usname")+", ") ;
+});
+// меню на 996px-360px
+  let toggle = document.querySelectorAll(".menu-toggle__btn")[0];
+
+$(window).on('load resize',windowSize);
+
+ function windowSize(){
+	if(this.innerWidth < 996){
+		$('.toggle-menu').css({display: "none"});
+	}
+
+	if(this.innerWidth >= 996){
+		$('.toggle-menu').removeAttr("style");
+	}
+}
+		$(window).on('load resize',windowSize);
+
+    toggle.addEventListener( "click", function(e) {
+      e.preventDefault();
+      if(this.classList.contains("menu-toggle_active") !== true){
+
+		    this.classList.add("menu-toggle_active");
+		  
+		    $('.toggle-menu').slideDown(500,"linear",function(){
+		    	$(this).css({
+			      display: "flex"
+			    })
+		    });
+      }else {
+      	this.classList.remove("menu-toggle_active");
+
+		$('.toggle-menu').slideUp(500,"linear",function(){
+				$(this).css({
+			      display: "none"
+			    })
+		});
+		
+      } 
+
+    });
+ 
+let $newsList = $('.marquee > .marquee__row'),
+    $newsBtn = $('.button-social__btn');
+
+newsHide(1,0);
+
+function newsHide($m,$b){
+    for (let index = 0; index <$newsList.length; index++) {
+        $newsList.eq(index).css('display','none');
+    }
+
+    for (let index = 0; index <$newsBtn.length; index++) {
+        $newsBtn.eq(index).removeClass("button-social__active-blue");
+    }
+ 
+    $newsList.eq($b).css('display','block');
+    $newsBtn.eq($m).addClass("button-social__active-blue");
+}
+
+function searchIndexBtn($class){
+    let rez = null;
+    for (let index = 0; index < $newsBtn.length; index++) {
+        if($newsBtn[index].lastElementChild == $class){
+            rez = index;
+            break;
+        }
+        
+    }
+
+    return rez;
+
+}
+
+
+
+$newsBtn.on("click", function(e) {
+    console.log($(this))
+    if($(this)[0].classList[1] !== "search-submit"){
+        let $btnIndex = searchIndexBtn($(this)[0].lastElementChild);
+        newsHide($btnIndex, $btnIndex-1);
+    }
+  });
+let $searchBtn = $(".search-submit"),
+    $searchBlock = $(".search"),
+    $searchResultElements = $(".search-result > .search-result__item"),
+    $searchInputElement=$('.search-inv__input');
+    
+$searchBtn.on("click", function(e) {
+        e.preventDefault();
+
+            if(this.classList.contains("search-submit_active") !== true){
+
+                this.classList.add("search-submit_active");
+            
+                $searchBlock.slideDown(500,"linear",function(){
+                    $(this).css({
+                    display: "block"
+                    })
+                });
+        }else {
+            this.classList.remove("search-submit_active");
+
+            $searchBlock.slideUp(500,"linear",function(){
+                    $(this).css({
+                    display: "none"
+                    })
+            });
+            
+        } 
+
+});
+
+$searchResultElements.on("click", function(e) {
+    e.preventDefault();
+    console.log($(this)[0].innerText);
+    $searchInputElement[0].value = $(this)[0].innerText;
+});
+
+// ajax получение запросов для поиска, подстановка в .search-result > .search-result__item
+    // КОД
+//
+$('.slider-items').slick({
+  dots: true,
+  arrows: false,
+  infinite: false,
+  speed: 700,
+  appendDots: $('.slider-dot'),
+  slidesToShow: 5,
+  slidesToScroll: 5,
+  responsive: [
+    {
+      breakpoint: 1200,
+      settings: {
+        slidesToShow: 4,
+        slidesToScroll: 4,
+        infinite: true,
+      }
+    },
+    {
+      breakpoint: 1000,
+      settings: {
+        slidesToShow: 3,
+        slidesToScroll: 3,
+        infinite: true,
+        dots: false
+      }
+    },
+    {
+      breakpoint: 996,
+      settings: {
+        slidesToShow: 3,
+        slidesToScroll: 3,
+        infinite: true,
+        dots: false
+      }
+    },
+    {
+      breakpoint: 600,
+      settings: {
+        slidesToShow: 2,
+        slidesToScroll: 2
+      }
+    },
+    {
+      breakpoint: 480,
+      settings: {
+        slidesToShow: 1,
+        slidesToScroll: 1
+      }
+    }
+  ]
 });
 console.log(document.getElementsByClassName("calendar-wrapper"));
 if(document.getElementsByClassName("calendar-wrapper")!= null && document.getElementsByClassName("calendar-wrapper").length!= 0){
@@ -273,6 +464,10 @@ var initPhotoSwipeFromDOM = function(gallerySelector) {
 
 // execute above function
 initPhotoSwipeFromDOM('.my-gallery');
+$('.btn-soc').on('click', function(e){
+    alert("Проблема работы сервера");
+});
+
 let $arrRadio = $('.question-radio > .question-radio__checkbox'),
 	$questionRadio = $('.question-radio'),
 	$questionRadioLable = $('.question-radio > .question-radio__lable'),
@@ -353,9 +548,6 @@ function progressVote(){
 		$progressBar.eq(i).attr('data-vote',dataVote);
 	}
 }
-$('.btn-soc').on('click', function(e){
-    alert("Проблема работы сервера");
-});
 $('.mini-items').slick({
   dots: true,
   arrows: false,
@@ -397,7 +589,6 @@ $('.mini-items').slick({
     }
   ]
 });
-
 $('.slider-post').slick({
   dots: false,
   arrows: true,
@@ -435,175 +626,4 @@ $('.slider-post').slick({
     }
   ]
 });
-// меню на 996px-360px
-  let toggle = document.querySelectorAll(".menu-toggle__btn")[0];
-
-$(window).on('load resize',windowSize);
-
- function windowSize(){
-	if(this.innerWidth < 996){
-		$('.toggle-menu').css({display: "none"});
-	}
-
-	if(this.innerWidth >= 996){
-		$('.toggle-menu').removeAttr("style");
-	}
-}
-		$(window).on('load resize',windowSize);
-
-    toggle.addEventListener( "click", function(e) {
-      e.preventDefault();
-      if(this.classList.contains("menu-toggle_active") !== true){
-
-		    this.classList.add("menu-toggle_active");
-		  
-		    $('.toggle-menu').slideDown(500,"linear",function(){
-		    	$(this).css({
-			      display: "flex"
-			    })
-		    });
-      }else {
-      	this.classList.remove("menu-toggle_active");
-
-		$('.toggle-menu').slideUp(500,"linear",function(){
-				$(this).css({
-			      display: "none"
-			    })
-		});
-		
-      } 
-
-    });
- 
-$('.slider-items').slick({
-  dots: true,
-  arrows: false,
-  infinite: false,
-  speed: 700,
-  appendDots: $('.slider-dot'),
-  slidesToShow: 5,
-  slidesToScroll: 5,
-  responsive: [
-    {
-      breakpoint: 1200,
-      settings: {
-        slidesToShow: 4,
-        slidesToScroll: 4,
-        infinite: true,
-      }
-    },
-    {
-      breakpoint: 1000,
-      settings: {
-        slidesToShow: 3,
-        slidesToScroll: 3,
-        infinite: true,
-        dots: false
-      }
-    },
-    {
-      breakpoint: 996,
-      settings: {
-        slidesToShow: 3,
-        slidesToScroll: 3,
-        infinite: true,
-        dots: false
-      }
-    },
-    {
-      breakpoint: 600,
-      settings: {
-        slidesToShow: 2,
-        slidesToScroll: 2
-      }
-    },
-    {
-      breakpoint: 480,
-      settings: {
-        slidesToShow: 1,
-        slidesToScroll: 1
-      }
-    }
-  ]
-});
-let $newsList = $('.marquee > .marquee__row'),
-    $newsBtn = $('.button-social__btn');
-
-newsHide(1,0);
-
-function newsHide($m,$b){
-    for (let index = 0; index <$newsList.length; index++) {
-        $newsList.eq(index).css('display','none');
-    }
-
-    for (let index = 0; index <$newsBtn.length; index++) {
-        $newsBtn.eq(index).removeClass("button-social__active-blue");
-    }
- 
-    $newsList.eq($b).css('display','block');
-    $newsBtn.eq($m).addClass("button-social__active-blue");
-}
-
-function searchIndexBtn($class){
-    let rez = null;
-    for (let index = 0; index < $newsBtn.length; index++) {
-        if($newsBtn[index].lastElementChild == $class){
-            rez = index;
-            break;
-        }
-        
-    }
-
-    return rez;
-
-}
-
-
-
-$newsBtn.on("click", function(e) {
-    console.log($(this))
-    if($(this)[0].classList[1] !== "search-submit"){
-        let $btnIndex = searchIndexBtn($(this)[0].lastElementChild);
-        newsHide($btnIndex, $btnIndex-1);
-    }
-  });
-let $searchBtn = $(".search-submit"),
-    $searchBlock = $(".search"),
-    $searchResultElements = $(".search-result > .search-result__item"),
-    $searchInputElement=$('.search-inv__input');
-    
-$searchBtn.on("click", function(e) {
-        e.preventDefault();
-
-            if(this.classList.contains("search-submit_active") !== true){
-
-                this.classList.add("search-submit_active");
-            
-                $searchBlock.slideDown(500,"linear",function(){
-                    $(this).css({
-                    display: "block"
-                    })
-                });
-        }else {
-            this.classList.remove("search-submit_active");
-
-            $searchBlock.slideUp(500,"linear",function(){
-                    $(this).css({
-                    display: "none"
-                    })
-            });
-            
-        } 
-
-});
-
-$searchResultElements.on("click", function(e) {
-    e.preventDefault();
-    console.log($(this)[0].innerText);
-    $searchInputElement[0].value = $(this)[0].innerText;
-});
-
-// ajax получение запросов для поиска, подстановка в .search-result > .search-result__item
-    // КОД
-//
 });

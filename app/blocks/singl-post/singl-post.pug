@@ -107,6 +107,7 @@
 									span.com-info__usname  ShaneFreer
 									span.com-info__time  58 minutes ago
 								p.msg-com__text great post brainartworks great post brainartworks great post brainartworks great post brainartworks great post brainartworks great post brainartworks great post brainartworks great post brainartworks great post brainartworks
+								button(type="submit" class="msg-com__btn" data-usname="ShaneFreer") Ответить
 					li.list-com__item
 						.com
 							.img-com
@@ -116,6 +117,7 @@
 									span.com-info__usname  ShaneFreer
 									span.com-info__time  58 minutes ago
 								p.msg-com__text great post brainartworks great post brainartworks great post brainartworks great post brainartworks great post brainartworks great post brainartworks great post brainartworks great post brainartworks great post brainartworks			
+								button(type="submit" class="msg-com__btn" data-usname="ShaneFreer2") Ответить
 					li.list-com__item
 						.com
 							.img-com
@@ -124,15 +126,15 @@
 								.com-info 
 									span.com-info__usname  ShaneFreer
 									span.com-info__time  58 minutes ago
-								p.msg-com__text great post brainartworks great post brainartworks great post brainartworks great post brainartworks great post brainartworks great post brainartworks great post brainartworks great post brainartworks great post brainartworks			
+								p.msg-com__text great post brainartworks great post brainartworks rtworks
+								button(type="submit" class="msg-com__btn" data-usname="ShaneFreer1") Ответить
 			.comments-form
 				form(action="", class="form")
 					.form-left
-						.input-name.input
-							input(type="text" name="usname" class="input__styles" placeholder="Ваше имя")
-						.input-email.input
-							input(type="email" name="email" class="input__styles" placeholder="Ваш email")
+						.input-name
+							input(type="text" name="usname" class="input" placeholder="Ваше имя")
+						.input-email
+							input(type="email" name="email" class="input" placeholder="Ваш email")
 					.form-right
-						.input
-							textarea(name="msg" class="input__styles"  placeholder="Сообщение")
-					button(type="submit" name="msg_send" class="form__btn") Отправить
+							textarea(name="msg" class="input"  placeholder="Сообщение")
+					button(type="submit" name="msg_send" class="form__btn gen-button") Отправить
