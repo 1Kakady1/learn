@@ -25,20 +25,3 @@ $singlPostTab.on('click',function(e){
         $tagsViewGallery.removeAttr("style");
     }
 });
-
-///////// форма ////////
-
-// ajax отправка
-    $(".form__btn").click(function(e){
-        e.preventDefault();
-        alert("Проблема работы сервера")
-    });
-// ajax end
-
-let $textarea = $('.comments-form .form .form-right .input'),
-    $buttonComFormOtv = $(".msg-com__btn");
-
-$buttonComFormOtv.on('click',function(e){
-    e.preventDefault();
-    $textarea.val($(this).data("usname")+", ") ;
-});

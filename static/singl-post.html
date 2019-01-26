@@ -413,11 +413,11 @@
               <ul class="list-com">
                 <li class="list-com__item">
                   <div class="com">
-                    <div class="img-com"><img class="img-com__usimg" src="./img/404.jpg" alt="img comments user"></div>
+                    <div class="img-com"><img class="img-com__usimg" src="./img/с4.jpg" alt="img comments user"></div>
                     <div class="msg-com">
-                      <div class="com-info"> <span class="com-info__usname"> ShaneFreer</span><span class="com-info__time"> 58 minutes ago</span></div>
-                      <p class="msg-com__text">great post brainartworks great post brainartworks great post brainartworks great post brainartworks great post brainartworks great post brainartworks great post brainartworks great post brainartworks great post brainartworks</p>
-                      <button class="msg-com__btn" type="submit" data-usname="ShaneFreer">Ответить</button>
+                      <div class="com-info"> <span class="com-info__usname"> Rambo</span><span class="com-info__time"> 58 мин</span></div>
+                      <p class="msg-com__text">Прошу, не сомневайтесь, фильм великолепный! Конечно, вкусы у всех разные и спорить здесь с кем-то бессмысленно, но все же. Возможно, кому-то показался фильм нереальным, кто-то ищет режиссёрские ляпы. Но какой реалистичности вы ходите? Крови, грязи, бойни? Спасибо режиссёру, что он сумел снять фильм </p>
+                      <button class="msg-com__btn" type="submit" data-usname="Rambo">Ответить</button>
                     </div>
                   </div>
                 </li>
@@ -425,19 +425,19 @@
                   <div class="com">
                     <div class="img-com"><img class="img-com__usimg" src="./img/404.jpg" alt="img comments user"></div>
                     <div class="msg-com">
-                      <div class="com-info"> <span class="com-info__usname"> ShaneFreer</span><span class="com-info__time"> 58 minutes ago</span></div>
-                      <p class="msg-com__text">great post brainartworks great post brainartworks great post brainartworks great post brainartworks great post brainartworks great post brainartworks great post brainartworks great post brainartworks great post brainartworks			</p>
-                      <button class="msg-com__btn" type="submit" data-usname="ShaneFreer2">Ответить</button>
+                      <div class="com-info"> <span class="com-info__usname"> XxX_XxX</span><span class="com-info__time"> 1 час назад</span></div>
+                      <p class="msg-com__text">Великолепный фильм!наконец-то вышла из кинотеатра с кучей положительный эмоций что бывает крайне редко...Интересный,динамичный,... очень трогательный и переживательный...до глубины души...СВЕТЛЫЙ фильм со смыслом...Спасибо за этот фильм,ВСЕМ СОВЕТУЮ!...			</p>
+                      <button class="msg-com__btn" type="submit" data-usname="XxX_XxX">Ответить</button>
                     </div>
                   </div>
                 </li>
                 <li class="list-com__item">
                   <div class="com">
-                    <div class="img-com"><img class="img-com__usimg" src="./img/404.jpg" alt="img comments user"></div>
+                    <div class="img-com"><img class="img-com__usimg" src="./img/с1.jpg" alt="img comments user"></div>
                     <div class="msg-com">
-                      <div class="com-info"> <span class="com-info__usname"> ShaneFreer</span><span class="com-info__time"> 58 minutes ago</span></div>
-                      <p class="msg-com__text">great post brainartworks great post brainartworks rtworks</p>
-                      <button class="msg-com__btn" type="submit" data-usname="ShaneFreer1">Ответить</button>
+                      <div class="com-info"> <span class="com-info__usname"> Злой критик</span><span class="com-info__time"> 8 дней назад</span></div>
+                      <p class="msg-com__text">Сюжет и концовка настолько глупые, что даже сложно выбрать, что в этом фильме более убого. Спецэффекты местами хорошие, местами на уровне школьных уроков информатики. Посмотрела из-за большого резонанса какое-то время назад и пожалела потраченного времени. Всем, кто ждет чего-то интригующего от сюжета и впечатляющего от спецэффектов - не рекомендую. Лучше посмотрите что-нибудь другое!</p>
+                      <button class="msg-com__btn" type="submit" data-usname="Злой критик">Ответить</button>
                     </div>
                   </div>
                 </li>
@@ -447,18 +447,22 @@
               <form class="form" action="">
                 <div class="form-left">
                   <div class="input-name">
-                    <input class="input" type="text" name="usname" placeholder="Ваше имя">
+                    <input class="input" type="text" name="usname" id="name" placeholder="Ваше имя">
                   </div>
                   <div class="input-email">
-                    <input class="input" type="email" name="email" placeholder="Ваш email">
+                    <input class="input" type="email" name="email" id="email" placeholder="Ваш email">
                   </div>
                 </div>
                 <div class="form-right">
-                  <textarea class="input" name="msg" placeholder="Сообщение"></textarea>
+                  <textarea class="input" name="msg" id="msg" placeholder="Сообщение"></textarea>
                 </div>
-                <button class="form__btn gen-button" type="submit" name="msg_send">Отправить</button>
+                <button class="form__btn gen-button" type="submit" name="msg_send" id="send-comments">Отправить</button>
+                <div class="form-warrning"><img class="form-warrning__load" src="./res/img/load.gif"><span class="form-warrning__info"></span></div>
               </form>
             </div>
+          </div>
+          <div class="comments-load">
+            <button class="comments-load__btn gen-button" name="com_load">Больше</button>
           </div>
         </div>
       </div>

@@ -1,4 +1,4 @@
-console.log(document.getElementsByClassName("calendar-wrapper"));
+
 if(document.getElementsByClassName("calendar-wrapper")!= null && document.getElementsByClassName("calendar-wrapper").length!= 0){
     function Calendar2(id, year, month) {
             var Dlast = new Date(year,month+1,0).getDate(),

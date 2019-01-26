@@ -1,0 +1,52 @@
+.audio-post
+	.column-left
+		.post-name
+			h1.post-name__title Начало
+			h2.post-name__title--en Inception
+		.post-info
+			.preview.post-info__left
+				img(src="./img/nch.jpg" class="preview__size" alt="Начало")
+			.post-info__right.info
+				table(border="0" class="t-info")
+					tr.t-info__wrapper
+						td.t-info__column-left Слоган:
+						td.t-info__column-right «Твой разум - место преступления»
+					tr.t-info__wrapper
+						td.t-info__column-left Дата выхода:
+						td.t-info__column-right 22 июля 2010
+					tr.t-info__wrapper
+						td.t-info__column-left Страна:
+						td.t-info__column-right CША
+					tr.t-info__wrapper
+						td.t-info__column-left Режиссер:
+						td.t-info__column-right Кристофер Нолан
+					tr.t-info__wrapper
+						td.t-info__column-left Жанр:
+						td.t-info__column-right Боевики, Детективы, Драмы, Фантастика, Триллеры, Зарубежные
+					tr.t-info__wrapper
+						td.t-info__column-left Время:
+						td.t-info__column-right 148 мин
+		.audio-wrap
+			.cover
+				img(src="./res/img/nota.jpg", alt="cover")
+			.audio-box
+				audio(src="",controls,id="audioPalyer")
+				ul#playlist
+					li
+						i.fas.fa-music
+						a(href="./res/audio/12 - Hackers.mp3") Hackers
+					li
+						i.fas.fa-music
+						a(href="./res/audio/17. Time Suite.mp3" ) Time Suite
+					li
+						i.fas.fa-music
+						a(href="./res/audio/20. Disappointed.mp3") Disappointed
+	aside.column-right.aside
+		.wrapper
+			-var titleBlock = "Вход", blockOn= 11;
+			include ../index/blockContent/blockContent
+			-titleBlock = "Теги", blockOn= 8;
+			include ../index/blockContent/blockContent
+			-titleBlock = "Лучшие комментарии", blockOn= 13;
+			include ../index/blockContent/blockContent
+	include ../comments/comments

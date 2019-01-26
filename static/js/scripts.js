@@ -1,4 +1,124 @@
 $(document).ready(function() {
+function audioPalyer(){
+	let currentSong = 0,
+		coverImg="nota.jpg";
+	$("#audioPalyer")[0].src = $("#playlist li a")[0];
+
+	$("#playlist li a").click(function(e) {
+		e.preventDefault();;
+		$(".cover > img").addClass("rot");
+		$("#audioPalyer")[0].src = this;
+		$("#playlist li i").removeClass('fa-play');
+		$("#audioPalyer")[0].play();
+		$("#playlist li").removeClass('current-song');
+		currentSong = $(this).parent().index();
+		$(this).parent().addClass("current-song");
+		$("#playlist .current-song i").addClass("fa-play");
+
+	});
+
+	$("#audioPalyer")[0].addEventListener("ended", function(){
+		currentSong++;
+		$("#playlist .current-song i").removeClass('fa-play');
+		 if(currentSong==$("#playlist li a").length)
+		 	currentSong=0;
+		$("#playlist li").removeClass('current-song');
+		$(`#playlist li:eq(${currentSong})`).addClass('current-song');
+		$("#playlist .current-song i").addClass("fa-play");
+		$("#audioPalyer")[0].src = $("#playlist li a")[currentSong].href;
+		$("#audioPalyer")[0].play();
+	});
+
+	$("#audioPalyer")[0].addEventListener("pause", function(){
+		$(".cover > img").removeClass("rot");
+	});
+
+	$("#audioPalyer")[0].addEventListener("play", function(){
+		$(".cover > img").addClass("rot");
+	});
+
+}
+if($("#audioPalyer")!= null && $("#audioPalyer").length!= 0){
+	audioPalyer();
+}
+
+$('#send-comments').click (function () {
+	var email = $('#email').val ();
+	var name = $('#name').val ();
+	var message = $('#msg').val ();
+    $('.form-warrning__info').text ("");
+	$.ajax({
+		url:    	'send.php',
+		type:		'POST',
+		cache: 		false,
+		data:   	{'name':name, 'email':email, 'msg':message},
+		dataType:	'html',
+		beforeSend: function () {
+			$('#send-comments').attr("disabled", "disabled");
+            $('.form-warrning__load').addClass("form-warrning_loader-show");
+		},
+		success: function(data) {
+			if (data == true) {
+				$('#name').val ("");
+				$('#email').val ("");
+				$('#msg').val ("");
+				$('.form-warrning__info').text ("Сообщение отправлено");
+				$('#email').css ("border-color", "#60fc8c");
+				$('#name').css ("border-color", "#60fc8c");
+				$('#msg').css ("border-color", "#60fc8c");
+			} else {
+				setTimeout(function () {
+					if (data == false)
+						$('.form-warrning__info').text ("Проблема в работе сервера.Повторте через несколько минут");
+					else {
+						switch (data) {
+						case "Имя не указано":
+						$('#name').css ("border-color", "#f7b4b4");
+						$('.form-warrning__info').text ("Имя не указано");
+						break;
+						case "Сообщение не указано":
+						$('#msg').css ("border-color", "#f7b4b4");
+						$('.form-warrning__info').text ("Сообщение не указано");
+						break;
+						case "Неправильный e-mail":
+						$('#email').css ("border-color", "#f7b4b4");
+						$('.form-warrning__info').text ("Неправильный e-mail");
+						default:
+						$('#email').css ("border-color", "#f7b4b4");
+						$('#msg').css ("border-color", "#f7b4b4");
+						$('#name').css ("border-color", "#f7b4b4");
+						$('.form-warrning__info').text ("Заполнитевсе поля");
+						}
+					}
+
+            	}, 1000);
+			}
+			
+			setTimeout(function () {
+                $('#send-comments').removeAttr ("disabled");
+                $('.form-warrning__load').removeClass("form-warrning_loader-show");
+            }, 1000);
+        },
+        error:function(data) {
+            setTimeout(function () {
+                $('#send-comments').removeAttr ("disabled");
+                $('.form-warrning__load').removeClass("form-warrning_loader-show");
+            }, 1000);
+            $('.form-warrning__info').text ("Проблема работы сервера");
+        }
+	});
+});
+
+let $textarea = $('.comments-form .form .form-right .input'),
+$buttonComFormOtv = $(".msg-com__btn");
+
+$buttonComFormOtv.on('click',function(e){
+    e.preventDefault();
+    $textarea.val($(this).data("usname")+", ");
+    let destination = $('.comments-form').offset().top;
+    $('html').animate({ scrollTop: destination }, 800);
+});
+
 let $singlPostTab= $('.tabs-view .tabs > button'),
     $tagsViewGallery=$(".tabs-view__gallery"),
     $tabsViewVideo = $(".tabs-view__video");
@@ -26,143 +146,6 @@ $singlPostTab.on('click',function(e){
         $tagsViewGallery.removeAttr("style");
     }
 });
-
-///////// форма ////////
-
-// ajax отправка
-    $(".form__btn").click(function(e){
-        e.preventDefault();
-        alert("Проблема работы сервера")
-    });
-// ajax end
-
-let $textarea = $('.comments-form .form .form-right .input'),
-    $buttonComFormOtv = $(".msg-com__btn");
-
-$buttonComFormOtv.on('click',function(e){
-    e.preventDefault();
-    $textarea.val($(this).data("usname")+", ") ;
-});
-// меню на 996px-360px
-  let toggle = document.querySelectorAll(".menu-toggle__btn")[0];
-
-$(window).on('load resize',windowSize);
-
- function windowSize(){
-	if(this.innerWidth < 996){
-		$('.toggle-menu').css({display: "none"});
-	}
-
-	if(this.innerWidth >= 996){
-		$('.toggle-menu').removeAttr("style");
-	}
-}
-		$(window).on('load resize',windowSize);
-
-    toggle.addEventListener( "click", function(e) {
-      e.preventDefault();
-      if(this.classList.contains("menu-toggle_active") !== true){
-
-		    this.classList.add("menu-toggle_active");
-		  
-		    $('.toggle-menu').slideDown(500,"linear",function(){
-		    	$(this).css({
-			      display: "flex"
-			    })
-		    });
-      }else {
-      	this.classList.remove("menu-toggle_active");
-
-		$('.toggle-menu').slideUp(500,"linear",function(){
-				$(this).css({
-			      display: "none"
-			    })
-		});
-		
-      } 
-
-    });
- 
-let $newsList = $('.marquee > .marquee__row'),
-    $newsBtn = $('.button-social__btn');
-
-newsHide(1,0);
-
-function newsHide($m,$b){
-    for (let index = 0; index <$newsList.length; index++) {
-        $newsList.eq(index).css('display','none');
-    }
-
-    for (let index = 0; index <$newsBtn.length; index++) {
-        $newsBtn.eq(index).removeClass("button-social__active-blue");
-    }
- 
-    $newsList.eq($b).css('display','block');
-    $newsBtn.eq($m).addClass("button-social__active-blue");
-}
-
-function searchIndexBtn($class){
-    let rez = null;
-    for (let index = 0; index < $newsBtn.length; index++) {
-        if($newsBtn[index].lastElementChild == $class){
-            rez = index;
-            break;
-        }
-        
-    }
-
-    return rez;
-
-}
-
-
-
-$newsBtn.on("click", function(e) {
-    console.log($(this))
-    if($(this)[0].classList[1] !== "search-submit"){
-        let $btnIndex = searchIndexBtn($(this)[0].lastElementChild);
-        newsHide($btnIndex, $btnIndex-1);
-    }
-  });
-let $searchBtn = $(".search-submit"),
-    $searchBlock = $(".search"),
-    $searchResultElements = $(".search-result > .search-result__item"),
-    $searchInputElement=$('.search-inv__input');
-    
-$searchBtn.on("click", function(e) {
-        e.preventDefault();
-
-            if(this.classList.contains("search-submit_active") !== true){
-
-                this.classList.add("search-submit_active");
-            
-                $searchBlock.slideDown(500,"linear",function(){
-                    $(this).css({
-                    display: "block"
-                    })
-                });
-        }else {
-            this.classList.remove("search-submit_active");
-
-            $searchBlock.slideUp(500,"linear",function(){
-                    $(this).css({
-                    display: "none"
-                    })
-            });
-            
-        } 
-
-});
-
-$searchResultElements.on("click", function(e) {
-    e.preventDefault();
-    console.log($(this)[0].innerText);
-    $searchInputElement[0].value = $(this)[0].innerText;
-});
-
-// ajax получение запросов для поиска, подстановка в .search-result > .search-result__item
-    // КОД
-//
 $('.slider-items').slick({
   dots: true,
   arrows: false,
@@ -214,7 +197,127 @@ $('.slider-items').slick({
     }
   ]
 });
-console.log(document.getElementsByClassName("calendar-wrapper"));
+// меню на 996px-360px
+  let toggle = document.querySelectorAll(".menu-toggle__btn")[0];
+
+$(window).on('load resize',windowSize);
+
+ function windowSize(){
+	if(this.innerWidth < 996){
+		$('.toggle-menu').css({display: "none"});
+	}
+
+	if(this.innerWidth >= 996){
+		$('.toggle-menu').removeAttr("style");
+	}
+}
+		$(window).on('load resize',windowSize);
+
+    toggle.addEventListener( "click", function(e) {
+      e.preventDefault();
+      if(this.classList.contains("menu-toggle_active") !== true){
+
+		    this.classList.add("menu-toggle_active");
+		  
+		    $('.toggle-menu').slideDown(500,"linear",function(){
+		    	$(this).css({
+			      display: "flex"
+			    })
+		    });
+      }else {
+      	this.classList.remove("menu-toggle_active");
+
+		$('.toggle-menu').slideUp(500,"linear",function(){
+				$(this).css({
+			      display: "none"
+			    })
+		});
+		
+      } 
+
+    });
+ 
+let $searchBtn = $(".search-submit"),
+    $searchBlock = $(".search"),
+    $searchResultElements = $(".search-result > .search-result__item"),
+    $searchInputElement=$('.search-inv__input');
+    
+$searchBtn.on("click", function(e) {
+        e.preventDefault();
+
+            if(this.classList.contains("search-submit_active") !== true){
+
+                this.classList.add("search-submit_active");
+            
+                $searchBlock.slideDown(500,"linear",function(){
+                    $(this).css({
+                    display: "block"
+                    })
+                });
+        }else {
+            this.classList.remove("search-submit_active");
+
+            $searchBlock.slideUp(500,"linear",function(){
+                    $(this).css({
+                    display: "none"
+                    })
+            });
+            
+        } 
+
+});
+
+$searchResultElements.on("click", function(e) {
+    e.preventDefault();
+    console.log($(this)[0].innerText);
+    $searchInputElement[0].value = $(this)[0].innerText;
+});
+
+// ajax получение запросов для поиска, подстановка в .search-result > .search-result__item
+    // КОД
+//
+let $newsList = $('.marquee > .marquee__row'),
+    $newsBtn = $('.button-social__btn');
+
+newsHide(1,0);
+
+function newsHide($m,$b){
+    for (let index = 0; index <$newsList.length; index++) {
+        $newsList.eq(index).css('display','none');
+    }
+
+    for (let index = 0; index <$newsBtn.length; index++) {
+        $newsBtn.eq(index).removeClass("button-social__active-blue");
+    }
+ 
+    $newsList.eq($b).css('display','block');
+    $newsBtn.eq($m).addClass("button-social__active-blue");
+}
+
+function searchIndexBtn($class){
+    let rez = null;
+    for (let index = 0; index < $newsBtn.length; index++) {
+        if($newsBtn[index].lastElementChild == $class){
+            rez = index;
+            break;
+        }
+        
+    }
+
+    return rez;
+
+}
+
+
+
+$newsBtn.on("click", function(e) {
+    console.log($(this))
+    if($(this)[0].classList[1] !== "search-submit"){
+        let $btnIndex = searchIndexBtn($(this)[0].lastElementChild);
+        newsHide($btnIndex, $btnIndex-1);
+    }
+  });
+
 if(document.getElementsByClassName("calendar-wrapper")!= null && document.getElementsByClassName("calendar-wrapper").length!= 0){
     function Calendar2(id, year, month) {
             var Dlast = new Date(year,month+1,0).getDate(),
@@ -467,7 +570,6 @@ initPhotoSwipeFromDOM('.my-gallery');
 $('.btn-soc').on('click', function(e){
     alert("Проблема работы сервера");
 });
-
 let $arrRadio = $('.question-radio > .question-radio__checkbox'),
 	$questionRadio = $('.question-radio'),
 	$questionRadioLable = $('.question-radio > .question-radio__lable'),
@@ -548,6 +650,44 @@ function progressVote(){
 		$progressBar.eq(i).attr('data-vote',dataVote);
 	}
 }
+
+$('.slider-post').slick({
+  dots: false,
+  arrows: true,
+  nextArrow: $('.arrow-slider__next'),
+  prevArrow: $('.arrow-slider__prev'),
+  infinite: false,
+  fade: true,
+  speed: 900,
+  appendDots: $('.slider-dot'),
+  slidesToShow: 1,
+  slidesToScroll: 1,
+  responsive: [
+    {
+      breakpoint: 1024,
+      settings: {
+        slidesToShow: 1,
+        slidesToScroll: 1,
+        infinite: true,
+        dots: true
+      }
+    },
+    {
+      breakpoint: 600,
+      settings: {
+        slidesToShow: 1,
+        slidesToScroll: 1
+      }
+    },
+    {
+      breakpoint: 480,
+      settings: {
+        slidesToShow: 1,
+        slidesToScroll: 1
+      }
+    }
+  ]
+});
 $('.mini-items').slick({
   dots: true,
   arrows: false,
@@ -578,43 +718,6 @@ $('.mini-items').slick({
       settings: {
         slidesToShow: 2,
         slidesToScroll: 2
-      }
-    },
-    {
-      breakpoint: 480,
-      settings: {
-        slidesToShow: 1,
-        slidesToScroll: 1
-      }
-    }
-  ]
-});
-$('.slider-post').slick({
-  dots: false,
-  arrows: true,
-  nextArrow: $('.arrow-slider__next'),
-  prevArrow: $('.arrow-slider__prev'),
-  infinite: false,
-  fade: true,
-  speed: 900,
-  appendDots: $('.slider-dot'),
-  slidesToShow: 1,
-  slidesToScroll: 1,
-  responsive: [
-    {
-      breakpoint: 1024,
-      settings: {
-        slidesToShow: 1,
-        slidesToScroll: 1,
-        infinite: true,
-        dots: true
-      }
-    },
-    {
-      breakpoint: 600,
-      settings: {
-        slidesToShow: 1,
-        slidesToScroll: 1
       }
     },
     {
