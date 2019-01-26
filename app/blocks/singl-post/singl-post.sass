@@ -124,3 +124,39 @@
     -webkit-animation-name: flipInX;
     animation-duration: 1s;
     animation-fill-mode: both;
+
+@media screen and (max-width: 1022px)
+    .singl-post,.audio-post
+        .column-right, .column-left
+            width: 100%
+    .aside .wrapper
+        .box-content:nth-child(1)
+            .login
+                width: 100%
+        .box-content:nth-child(2)
+            .tags
+                justify-content: space-around;
+                display: flex
+@media screen and (max-width: 768px)
+    .t-info__column-left, .t-info__column-right
+        font-size: 14px
+@media screen and (max-width: 572px)
+    .audio-post .post-info, .singl-post .post-info
+        flex-flow: column wrap;
+        justify-content: center;
+        align-items: center;
+    .audio-post .post-info__right, .singl-post .post-info__right
+            width: 100%;
+            padding-left: 0;
+    .audio-post .post-info__left, .singl-post .post-info__left
+            width: 80%;
+@media screen and (max-width: 400px)
+    .article__title
+        letter-spacing: -0.7px;
+        font-size: 22px;
+    .article__text
+        letter-spacing: 0.3px;
+        font-size: 15px;
+    .tabs-view .tabs__gallary,.tabs-view .tabs__video
+        width: 49%
+        font-size: 9px

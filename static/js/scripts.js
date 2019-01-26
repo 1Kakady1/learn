@@ -146,6 +146,87 @@ $singlPostTab.on('click',function(e){
         $tagsViewGallery.removeAttr("style");
     }
 });
+// меню на 996px-360px
+  let toggle = document.querySelectorAll(".menu-toggle__btn")[0];
+
+$(window).on('load resize',windowSize);
+
+ function windowSize(){
+	if(this.innerWidth < 996){
+		$('.toggle-menu').css({display: "none"});
+	}
+
+	if(this.innerWidth >= 996){
+		$('.toggle-menu').removeAttr("style");
+	}
+}
+		$(window).on('load resize',windowSize);
+
+    toggle.addEventListener( "click", function(e) {
+      e.preventDefault();
+      if(this.classList.contains("menu-toggle_active") !== true){
+
+		    this.classList.add("menu-toggle_active");
+		  
+		    $('.toggle-menu').slideDown(500,"linear",function(){
+		    	$(this).css({
+			      display: "flex"
+			    })
+		    });
+      }else {
+      	this.classList.remove("menu-toggle_active");
+
+		$('.toggle-menu').slideUp(500,"linear",function(){
+				$(this).css({
+			      display: "none"
+			    })
+		});
+		
+      } 
+
+    });
+ 
+let $newsList = $('.marquee > .marquee__row'),
+    $newsBtn = $('.button-social__btn');
+
+newsHide(1,0);
+
+function newsHide($m,$b){
+    for (let index = 0; index <$newsList.length; index++) {
+        $newsList.eq(index).css('display','none');
+    }
+
+    for (let index = 0; index <$newsBtn.length; index++) {
+        $newsBtn.eq(index).removeClass("button-social__active-blue");
+    }
+ 
+    $newsList.eq($b).css('display','block');
+    $newsBtn.eq($m).addClass("button-social__active-blue");
+}
+
+function searchIndexBtn($class){
+    let rez = null;
+    for (let index = 0; index < $newsBtn.length; index++) {
+        if($newsBtn[index].lastElementChild == $class){
+            rez = index;
+            break;
+        }
+        
+    }
+
+    return rez;
+
+}
+
+
+
+$newsBtn.on("click", function(e) {
+    console.log($(this))
+    if($(this)[0].classList[1] !== "search-submit"){
+        let $btnIndex = searchIndexBtn($(this)[0].lastElementChild);
+        newsHide($btnIndex, $btnIndex-1);
+    }
+  });
 $('.slider-items').slick({
   dots: true,
   arrows: false,
@@ -197,46 +278,6 @@ $('.slider-items').slick({
     }
   ]
 });
-// меню на 996px-360px
-  let toggle = document.querySelectorAll(".menu-toggle__btn")[0];
-
-$(window).on('load resize',windowSize);
-
- function windowSize(){
-	if(this.innerWidth < 996){
-		$('.toggle-menu').css({display: "none"});
-	}
-
-	if(this.innerWidth >= 996){
-		$('.toggle-menu').removeAttr("style");
-	}
-}
-		$(window).on('load resize',windowSize);
-
-    toggle.addEventListener( "click", function(e) {
-      e.preventDefault();
-      if(this.classList.contains("menu-toggle_active") !== true){
-
-		    this.classList.add("menu-toggle_active");
-		  
-		    $('.toggle-menu').slideDown(500,"linear",function(){
-		    	$(this).css({
-			      display: "flex"
-			    })
-		    });
-      }else {
-      	this.classList.remove("menu-toggle_active");
-
-		$('.toggle-menu').slideUp(500,"linear",function(){
-				$(this).css({
-			      display: "none"
-			    })
-		});
-		
-      } 
-
-    });
- 
 let $searchBtn = $(".search-submit"),
     $searchBlock = $(".search"),
     $searchResultElements = $(".search-result > .search-result__item"),
@@ -276,47 +317,6 @@ $searchResultElements.on("click", function(e) {
 // ajax получение запросов для поиска, подстановка в .search-result > .search-result__item
     // КОД
 //
-let $newsList = $('.marquee > .marquee__row'),
-    $newsBtn = $('.button-social__btn');
-
-newsHide(1,0);
-
-function newsHide($m,$b){
-    for (let index = 0; index <$newsList.length; index++) {
-        $newsList.eq(index).css('display','none');
-    }
-
-    for (let index = 0; index <$newsBtn.length; index++) {
-        $newsBtn.eq(index).removeClass("button-social__active-blue");
-    }
- 
-    $newsList.eq($b).css('display','block');
-    $newsBtn.eq($m).addClass("button-social__active-blue");
-}
-
-function searchIndexBtn($class){
-    let rez = null;
-    for (let index = 0; index < $newsBtn.length; index++) {
-        if($newsBtn[index].lastElementChild == $class){
-            rez = index;
-            break;
-        }
-        
-    }
-
-    return rez;
-
-}
-
-
-
-$newsBtn.on("click", function(e) {
-    console.log($(this))
-    if($(this)[0].classList[1] !== "search-submit"){
-        let $btnIndex = searchIndexBtn($(this)[0].lastElementChild);
-        newsHide($btnIndex, $btnIndex-1);
-    }
-  });
 
 if(document.getElementsByClassName("calendar-wrapper")!= null && document.getElementsByClassName("calendar-wrapper").length!= 0){
     function Calendar2(id, year, month) {
@@ -570,6 +570,7 @@ initPhotoSwipeFromDOM('.my-gallery');
 $('.btn-soc').on('click', function(e){
     alert("Проблема работы сервера");
 });
+
 let $arrRadio = $('.question-radio > .question-radio__checkbox'),
 	$questionRadio = $('.question-radio'),
 	$questionRadioLable = $('.question-radio > .question-radio__lable'),
@@ -650,44 +651,6 @@ function progressVote(){
 		$progressBar.eq(i).attr('data-vote',dataVote);
 	}
 }
-
-$('.slider-post').slick({
-  dots: false,
-  arrows: true,
-  nextArrow: $('.arrow-slider__next'),
-  prevArrow: $('.arrow-slider__prev'),
-  infinite: false,
-  fade: true,
-  speed: 900,
-  appendDots: $('.slider-dot'),
-  slidesToShow: 1,
-  slidesToScroll: 1,
-  responsive: [
-    {
-      breakpoint: 1024,
-      settings: {
-        slidesToShow: 1,
-        slidesToScroll: 1,
-        infinite: true,
-        dots: true
-      }
-    },
-    {
-      breakpoint: 600,
-      settings: {
-        slidesToShow: 1,
-        slidesToScroll: 1
-      }
-    },
-    {
-      breakpoint: 480,
-      settings: {
-        slidesToShow: 1,
-        slidesToScroll: 1
-      }
-    }
-  ]
-});
 $('.mini-items').slick({
   dots: true,
   arrows: false,
@@ -718,6 +681,43 @@ $('.mini-items').slick({
       settings: {
         slidesToShow: 2,
         slidesToScroll: 2
+      }
+    },
+    {
+      breakpoint: 480,
+      settings: {
+        slidesToShow: 1,
+        slidesToScroll: 1
+      }
+    }
+  ]
+});
+$('.slider-post').slick({
+  dots: false,
+  arrows: true,
+  nextArrow: $('.arrow-slider__next'),
+  prevArrow: $('.arrow-slider__prev'),
+  infinite: false,
+  fade: true,
+  speed: 900,
+  appendDots: $('.slider-dot'),
+  slidesToShow: 1,
+  slidesToScroll: 1,
+  responsive: [
+    {
+      breakpoint: 1024,
+      settings: {
+        slidesToShow: 1,
+        slidesToScroll: 1,
+        infinite: true,
+        dots: true
+      }
+    },
+    {
+      breakpoint: 600,
+      settings: {
+        slidesToShow: 1,
+        slidesToScroll: 1
       }
     },
     {
