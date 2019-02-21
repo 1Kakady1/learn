@@ -1,0 +1,93 @@
+include ./include/img
+doctype strict
+html(xmlns='http://www.w3.org/1999/xhtml')
+	head
+		title Email
+		meta(http-equiv='Content-Type', content='text/html; charset=utf-8')
+		meta(name='viewport', content='width=device-width')
+		// Link to the email's CSS, which will be inlined into the email
+		link(rel='stylesheet', href='../../css/styles.css', inline)
+	body
+		table.body
+			tbody
+				tr
+					td
+						center
+							container
+								row(class="header-email" valign="middle")
+									columns(small="6",large="6"  class="custom-pb" valign="middle")
+											spacer(size="5")
+											img(class="header-email__logo" src=""+logo)
+									columns(small="6",large="6" class="custom-pb" valign="middle")
+											spacer(size="5")
+											p.header-email__title.text-right Оформленный заказ
+							spacer(size="15")
+							table.info
+								tbody
+									tr
+										td
+											container
+												row
+													columns( small="12",large="4" class="info-column")
+														h2.info-column__usname Name:
+														spacer(size="5")
+														p.info-column__code Номер заказа: 1112131
+														spacer(size="5")
+														p.info-column__code Стоимость: 9000$
+													columns(small="12",large="8"  class="info-column")
+														p.info-column__msg Lorem ipsum dolor sit amet consectetur adipisicing elit. Amet illo doloribus modi alias saepe, deserunt expedita aliquid mollitia eos non, ducimus quas minus excepturi ipsa corporis? Consequatur vero dolor voluptatem.
+							spacer(size="15")
+							table.product
+								tbody
+									tr
+										td
+											container
+												row
+													columns( small="12",large="4" class="product-column")
+														img(src=""+img404 class="product-column__img")
+														h2.product-column__price.text-center 1999$
+														a(href="#" product-column__link)
+															h2.product-column__title.text-center Title
+													columns( small="12",large="4" class="product-column")
+														img(src=""+img404 class="product-column__img")
+														h2.product-column__price.text-center 1999$
+														a(href="#" product-column__link)
+															h2.product-column__title.text-center Title
+													columns( small="12",large="4" class="product-column")
+														img(src=""+img404 class="product-column__img")
+														h2.product-column__price.text-center 1999$
+														a(href="#" product-column__link)
+															h2.product-column__title.text-center Titl
+												row
+													columns( small="12",large="4" class="product-column")
+														img(src=""+img404 class="product-column__img")
+														h2.product-column__price.text-center 1999$
+														a(href="#" product-column__link)
+															h2.product-column__title.text-center Title
+													columns( small="12",large="4" class="product-column")
+														img(src=""+img404 class="product-column__img")
+														h2.product-column__price.text-center 1999$
+														a(href="#" product-column__link)
+															h2.product-column__title.text-center Title
+													columns( small="12",large="4" class="product-column")
+							spacer(size="15")
+							<button href="#">Смотреть</button>
+							spacer(size="15")
+							table
+								tbody
+									tr
+										td
+											container
+												row(class ="footer")
+													columns( small="12",large="12" class="info-column")
+														spacer(size="8")
+														h3.footer-title Связь с нами:
+													columns( small="12",large="12" class="info-column")
+															spacer(size="8")
+															h2.footer__email.text-right eefeedf@vsggsgsegsg
+													columns(small="12",large="12"  class="info-column")
+															spacer(size="8")
+															p.footer-phone.text-right +3222
+															p.footer-phone.text-right +3113
+								
+
