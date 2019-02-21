@@ -1,0 +1,166 @@
+/* comments */
+.comments
+    width: 100%
+    padding: 0 36px 0 36px
+    position: relative
+    &__title
+        font-family: "RobotoRegular", sans-serif
+    .comments-column
+        display: flex
+        .comments-list
+            width: 60%
+        .comments-form
+            width: 40%
+
+.comments-list
+    .list-com
+        list-style: none
+        &__item
+            display: flex
+            flex-flow: row nowrap
+            padding-top: 10px;
+            padding-bottom: 10px;
+            .com
+                display: flex
+                flex-flow: row nowrap
+                align-items: center;
+                width: 86%
+                .img-com
+                    width: 65px;
+                    height: 65px;
+                    &__usimg
+                        width: 100%
+                        height: 100%
+                .msg-com
+                    flex-direction: column
+                    width: 75%
+                    margin-left: 18px
+                    .com-info
+                        border-bottom: 1px solid #383d40
+                        justify-content: space-between;
+                        display: flex;
+                        &__usname
+                            font-family: "RobotoRegular", sans-serif
+                            color: #383d40
+                            font-weight: bold
+                        &__time
+                            font-family: "RobotoRegular", sans-serif
+                            color: #383d40
+                            font-size: 12px
+                    &__text
+                        font-family: "RobotoRegular", sans-serif
+                        color: #383d40
+                        font-size: 14px
+                        margin: 0
+                        margin-top: 10px
+                    &__btn
+                        background: transparent;
+                        border: none;
+                        float: right; 
+                        padding: 6px
+                        &:hover
+                            color: #55B2F3
+.input
+    padding: .375rem .75rem
+    font-size: 1rem
+    line-height: 1.5
+    color: #495057
+    background-color: #fff
+    background-clip: padding-box
+    border: 1px solid #ced4da
+    border-radius: .25rem
+    transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out
+
+.comments-form_fixed
+    position: fixed
+.comments-form
+    .form-left
+        .input-name, .input-email
+            display: block;
+            .input
+                width: 95%
+                background: #2D2D2D
+                color: #fff
+        .input-name
+            margin-bottom: 20px;
+        .input-email
+            margin-bottom: 1px;
+    .form-right
+        .input
+            height: 100%
+            width: 100%
+            background: #2D2D2D
+            color: #fff
+            resize: none
+
+.comments-load
+    width: 50%
+    display: flex
+    justify-content: center
+    padding-bottom: 15px
+    &__btn
+        width: 20%
+.form-warrning
+    display: flex;
+    align-items: center;
+    &__load
+        width: 46px
+        height: 46px
+        display: none
+    &__info
+        font-family: "RobotoRegular", sans-serif
+        margin-left: 10px
+        height: 46px
+        display: flex;
+        align-items: center;
+    &_loader-show
+        display: block!important
+.form
+    display: flex
+    flex-flow: row wrap
+    .form-left
+        width: 40%
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+    .form-right
+        width: 60%
+    &__btn
+        width: 100%
+        margin-top: 15px
+    ::placeholder
+        color: #fff;
+    :-ms-input-placeholder
+        color: #fff;
+    ::-ms-input-placeholder
+        color: #fff;
+
+
+@media screen and (max-width: 996px)
+    .comments  .comments-column
+        flex-flow: row wrap
+        .comments-list
+            width: 100%
+            order: 1;
+        .comments-form
+            width: 100%
+    .comments-load
+        width: 100%
+        &__btn
+            width: 50%
+@media screen and (max-width: 540px)
+    .form
+        flex-direction: column
+    .form .form-left
+        width: 100%;
+    .form .form-right
+        width: 100%;
+        height: 138px;
+    .comments-form .form-left .input-email .input, .comments-form .form-left .input-name .input
+        width: 100%;
+    .comments-list .list-com
+        list-style: none;
+        padding-left: 0;
+    .comments-list .list-com__item .com .msg-com__text
+        font-size: 12px;
+        margin: 10px 0 0;

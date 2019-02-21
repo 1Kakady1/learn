@@ -1,0 +1,46 @@
+-
+	var product = [
+		{
+		  url: '#',
+		  img: 'gameOFthrones.jpg',
+		  title: 'Game OF Thrones',
+		  cat: 'фэнтези, драмы',
+		  faIcon: ['far fa-calendar'],
+		  raite: 1,
+		  num: "9.6",
+		  numF: "Новинка"
+		},
+		{
+		  url: '#',
+		  img: 'Постер_телесериала_«О́рвилл».jpg',
+		  title: 'Орвилл',
+		  cat: 'фэнтези, комедия',
+		  faIcon: ['far fa-calendar']
+		},
+		{
+		  url: '#',
+		  img: '0_3ab72_a82e54c0_orig.jpg',
+		  title: 'Теория большого взрыва',
+		  cat: '	ситуационная комедия',
+		  faIcon: ['far fa-calendar']
+		},
+		{
+		  url: '#',
+		  img: 'Vikings1.png',
+		  title: 'Викинги',
+		  cat: 'историческая драма',
+		  faIcon: ['far fa-calendar'],
+		  raite: 1,
+		  num: "9.4",
+		  numF: "Новинка"
+		},									                
+	];
+.column1
+	-var titleBlock = "Сериалы месяца", blockOn= 1;
+	include ../blockContent/blockContent
+	- titleBlock = "Лучшие изображения недели"; blockOn= 2;
+	include ../blockContent/blockContent
+	- titleBlock = "Новинки"; blockOn= 3;
+	include ../blockContent/blockContent
+	- titleBlock = "Фильмы месяца"; blockOn= 4;
+	include ../blockContent/blockContent

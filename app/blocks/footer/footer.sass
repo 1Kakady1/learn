@@ -1,2 +1,136 @@
+@import ../link-social/link-social
+
+footer .container-footer .logo .logo__link-home
+    height: 65px;
+    width: 146px;
+    display: inline-block
+
+footer
+    background: #2D2D2D
+    padding-top: 55px
+.container-footer
+    display: flex
+    width: 100%
+    flex-flow: row wrap;
+    padding-left: 41px
+    padding-right: 41px
+
+.footer-social
+    display: flex
+    width: 100%
+
+.column-left, .column-right
+    width: 50%
+    
+.column-left
+    padding-right: 81px
+    .footer-social
+        padding-top: 3vw
+    .site-info
+        &__text, &__email
+            color: #CACACA;
+            font-family: "RobotoRegular", sans-serif 
+            font-style: normal;
+            font-weight: normal;
+            line-height: 24px;
+            font-size: 13px;
+
+.column-right 
+    padding-left: 81px
+    padding-right: 41px
+    border-left: 1px solid #414141
+    &__rdpost
+        font-family: "RobotoRegular", sans-serif 
+        font-style: normal;
+        font-weight: normal;
+        line-height: 24px;
+        font-size: 20px;
+        color: #fff
+
+    &> .random-post
+    .box-item .content__title
+        color: #fff;
+    .box-item .thumbnail
+        width: 83px;
+        height: 83px;
+    .box-item:hover
+        transform: scale(0.7);
+
+.column-bottom
+    width: 100%
+    display: flex
+    flex-flow: row wrap
+    margin-top: 38px
+    padding-top: 19px
+    border-top: 1px solid #414141
+    align-items: center;
+    .copuraite, .footer-nav
+        width: 50%
+    .copuraite
+        font-family: "RobotoRegular", sans-serif 
+        font-style: normal;
+        font-weight: normal;
+        line-height: 18px;
+        font-size: 12px;
+        color: #9F9F9F;
+
+@media screen and (max-width: 1100px)
+    .container-footer 
+        .menu  .menu__list
+            justify-content: flex-end
+        .footer-nav
+            width: 80%
+        .copuraite
+            width: 20%
+@media screen and (max-width: 996px)
+    .container-footer 
+
+        .menu  
+            .menu__list
+                flex-direction: row;
+            .menu__item
+                padding-top: 0
+                font-size: 11px;
+        
+        .box-item .content
+            width: 50%;
+@media screen and (max-width: 768px)
+    .container-footer 
+
+        .column-left
+            padding-right: 0;
+
+            .site-info__text
+                font-size: 9px;
+                width: 90%
+            .footer-social
+                flex-flow: row wrap
+                justify-content: center
+        .column-right
+            padding-left: 30px
+        
+        .menu  .menu__list
+            justify-content: center
+        .footer-nav
+            width: 100%
+
+        .copuraite
+            width: 100%
+            order: 2
+            text-align: center;
+@media screen and (max-width: 632px)
+    .container-footer  .column-left, .container-footer  .column-right
+         width: 100%;
+
+    .container-footer
+        .column-right
+            border-left: none
+            border-top: 1px solid #414141;
+@media screen and (max-width: 479px)
+    .container-footer
+        .menu  .menu__list
+            flex-flow: row wrap;
+    .container-footer .menu .menu__item
+        margin-top: 20px;
 
      

@@ -1,0 +1,20 @@
+mixin printPostBlock(postObj,modif_h,rait)
+	.post
+		a(href =""+postObj.url class="post-link "+modif_h)
+			.thumbnail
+				img(src="./img/"+postObj.img alt="" class="thumbnail__size")
+			-if(postObj.raite == 1){
+			.box-rate.position_abs
+				h2.box-rate__number= postObj.num
+				p.box-rate__title= postObj.numF
+			-}
+			.post-content.position_abs
+				h2.post-content__title= postObj.title
+				.icon-wrap
+					.icon-file
+						p.icon-file__cat.flex_revers= postObj.cat
+							i(class="far fa-folder-open icon-file__cat-item")
+					.icon-list
+						-for(var x=0; x<postObj.faIcon.length; x++){
+						i(class= postObj.faIcon[x]+" icon-list__item")
+						-}

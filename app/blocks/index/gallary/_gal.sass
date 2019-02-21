@@ -1,0 +1,32 @@
+.my-gallery
+	display: -webkit-flex
+	display: -moz-flex
+	display: -ms-flex
+	display: -o-flex
+	display: flex
+	justify-content: space-around
+	flex-flow: row wrap
+	width: 100%
+	padding-top: 22px;
+	&__figure
+		width: 263px;
+		height: 244px;
+		margin: 0 0 14px 0;
+		overflow: hidden
+	&__full-img
+		width: 100%
+		height: 100%
+		overflow: hidden
+		-webkit-transform: scale(1.5);
+		transform: scale(1.5);
+		-webkit-transition: .3s ease-in-out;
+		transition: .3s ease-in-out;
+	&__link
+		width: 100%;
+		height: 100%;
+		display: block
+		&:hover
+			.my-gallery__full-img
+				-webkit-transform: scale(1);
+				transform: scale(1);
+

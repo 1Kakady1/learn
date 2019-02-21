@@ -1,0 +1,21 @@
+include ../../header/post-slider/post/post-mixin
+-
+	var entertainment =[
+		{
+		  url: '#',
+		  img: '1632392-579158.jpg',
+		  title: 'Пленницы',
+		  cat: 'драма, триллер',
+		  faIcon: ['far fa-user','far fa-calendar', 'far fa-comment-dots'],
+		  raite: 1,
+		  num: "9.8",
+		  numF: ""
+		},
+	];
+
+- var flagPost = flag;
+
+.entertainment
+	.post-full
+		+printPostBlock(entertainment[0],"post-link_h323")
+	include ./post-items/post-items

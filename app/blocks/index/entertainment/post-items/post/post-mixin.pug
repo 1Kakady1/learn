@@ -1,0 +1,11 @@
+mixin printPostItems(postObj)
+	a(href=''+postObj.url class="box-item post-items__border")
+		.thumbnail
+			img(src="./img/"+postObj.img alt="" class="thumbnail__size")
+		.content
+			h2.content__title= postObj.title
+			.icon-wrap
+				.icon-list
+					-for(var x=0; x<postObj.faIcon.length; x++){
+					i(class= postObj.faIcon[x]+" icon-list__item")
+					-}

@@ -1,0 +1,115 @@
+
+.post-link_h352
+	height: 352px;
+.post-link
+	width: 100%;
+	position: relative
+	display: block
+	&:hover
+		.post-content
+			opacity: 0.4
+			background-image:  -webkit-linear-gradient(bottom, rgb(85, 178, 243) 0%, rgba(0, 0, 0, 0) 100%)
+			background-image:  -o-linear-gradient(bottom, rgb(85, 178, 243) 0%, rgba(0, 0, 0, 0) 100%)
+			background-image:  linear-gradient(to top, rgb(85, 178, 243) 0%, rgba(0, 0, 0, 0) 100%)	
+		.icon-list__item,.icon-file__cat-item,.icon-file__cat 
+			color: #ffffff!important
+.box-rate.position_abs
+	top: 0
+	right: 0
+.box-rate
+	display: -webkit-flex
+	display: -moz-flex
+	display: -ms-flex
+	display: -o-flex
+	display: flex
+	flex-direction: column
+	justify-content: center
+	align-items: center
+	width: 73px
+	height: 73px
+	background: #e75757
+	.box-rate__number,.box-rate__title
+		margin: 0
+		font-family: "RobotoRegular", sans-serif
+		font-style: normal
+		font-weight: normal
+		line-height: 18px
+		text-align: center
+	.box-rate__number
+		font-size: 25px
+		color: #FFFFFF
+		padding-bottom: 7px
+	.box-rate__title
+		font-size: 11px
+		color: #fff
+
+.thumbnail
+	width: 100%
+	height: 100%
+	&__size
+		width: 100%
+		height: 100%
+.post-content
+	transition: opacity 0.5s ease-in-out 0s;
+	opacity: 1
+	width: 100%
+	height: 151px
+	display: -webkit-flex
+	display: -moz-flex
+	display: -ms-flex
+	display: -o-flex
+	display: flex
+	flex-direction: column
+	justify-content: flex-end
+	background-image:  -webkit-linear-gradient(bottom, #000000 0%, rgba(0, 0, 0, 0) 100%)
+	background-image:  -o-linear-gradient(bottom, #000000 0%, rgba(0, 0, 0, 0) 100%)
+	background-image:  linear-gradient(to top, #000000 0%, rgba(0, 0, 0, 0) 100%)
+	padding-left: 23px
+	padding-right: 23px
+	padding-bottom: 16px
+	&__title
+		color: #ffffff;
+		font-family: "RobotoRegular", sans-serif;
+		font-size: 16px;
+		font-weight: 700;
+		line-height: 24px;
+		margin: 0;
+.post-content.position_abs
+	bottom: 0
+.icon
+	&-wrap
+		display: -webkit-flex
+		display: -moz-flex
+		display: -ms-flex
+		display: -o-flex
+		display: flex
+		align-items: center;
+		justify-content: space-between;
+	&-file
+		display: -webkit-flex
+		display: -moz-flex
+		display: -ms-flex
+		display: -o-flex
+		display: flex
+		&__cat
+			color: #b3b3b3;
+			font-family: "RobotoRegular", sans-serif;
+			font-size: 10px;
+			font-weight: 400;
+			line-height: 21.18px;
+			margin: 4px 0 0 0;
+			&-item
+				color: #b4b4b4!important
+				font-size: 12px!important
+				margin-right: 9px
+	&-list
+		display: -webkit-flex
+		display: -moz-flex
+		display: -ms-flex
+		display: -o-flex
+		display: flex
+		&__item
+			color: #b4b4b4!important
+			font-size: 14px!important
+			&:nth-child(1),&:nth-child(2)
+				margin-right: 13px

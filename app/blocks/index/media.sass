@@ -1,0 +1,42 @@
+@import ../header/menu/media/media
+@import ../header/news-tab/media/media
+@import ./poll/media/media
+@import ./gallary/media/media
+@import ./newsletters/media/media
+@import ./entertainment/media/media
+@import ../header/post-slider/media/media
+@import ./tags/media/media
+@import ./login/media/media
+
+@media screen and (max-width: 1024px)
+    .content-wrap
+        justify-content: center;
+
+        .post 
+            width: 42%;
+            margin-right: 6px;
+            margin-left: 11px;
+            margin-top: 14px;
+        .icon-file, .icon-wrap
+            flex-direction: column;
+        .post-content__title
+            font-size: 12px;
+        .post-link_h323
+            height: 384px;
+
+@media screen and (max-width: 997px)
+    .wrap-index
+        flex-flow: row wrap
+    .post-link_h243
+        height: 316px;
+    .content-wrap .icon-file, .content-wrap .icon-wrap
+        flex-direction: row;
+
+@media screen and (max-width: 479px)
+    .content-wrap
+        .post 
+            width: 80%;
+@media screen and (max-width: 406px)
+    .content-wrap
+        .post 
+            width: 80%;

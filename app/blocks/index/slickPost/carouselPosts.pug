@@ -1,0 +1,77 @@
+include ./post/post-mixin
+.mini-items
+	-
+		var miniPost = [[
+			{
+			  url: './audio-post.html',
+			  img: '2018377_220x220x50x1.jpg',
+			  svg: 'video',
+			  title: 'Убийца 2. Против всех',
+			  date: '29.06.2018',
+			},
+			{
+			  url: './audio-post.html',
+			  img: '2024645_220x220x50x1.jpg',
+			  svg: 'music',
+			  title: 'Ничего хорошего в отеле «Эль рояль»',
+			  date: '05.10.2018',
+			},	
+			{
+			  url: './audio-post.html',
+			  img: '2022616_220x220x50x1.jpg',
+			  svg: 'music',
+			  title: 'Веном',
+			  date: '05.10.2018',
+			},								                
+		],
+		[
+			{
+			  url: './audio-post.html',
+			  img: '2018764_220x220x50x1.jpg',
+			  svg: 'music',
+			  title: 'Реальная белка',
+			  date: '17.04.2014',
+			},
+			{
+			  url: './audio-post.html',
+			  img: '2018438_220x220x50x1.jpg',
+			  svg: 'music',
+			  title: 'Добытчик',
+			  date: '17.04.2014',
+			},	
+			{
+			  url: './audio-post.html',
+			  img: '2016286_220x220x50x1.jpg',
+			  svg: 'music',
+			  title: 'Апгрейд',
+			  date: '17.04.2014',
+			},								                
+		],
+		[
+			{
+			  url: './audio-post.html',
+			  img: '2012218_220x220x50x1.jpg',
+			  svg: 'music',
+			  title: 'Миссия невыполнима: Последствия',
+			  date: '17.04.2014',
+			},
+			{
+			  url: './audio-post.html',
+			  img: '1994699_220x220x50x1.jpg',
+			  svg: '',
+			  title: 'Гоголь. Начало',
+			  date: '17.04.2014',
+			},	
+			{
+			  url: './audio-post.html',
+			  img: '2012153_220x220x50x1.jpg',
+			  svg: 'video',
+			  title: 'Человек-муравей и Оса',
+			  date: '17.04.2014',
+			},								                
+		]];
+	
+	-for(var m=0;m<miniPost.length;m++){
+		each postM in miniPost[m]
+			+printMiniPost(postM)
+	-}
